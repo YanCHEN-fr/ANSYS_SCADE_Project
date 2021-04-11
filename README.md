@@ -6,7 +6,7 @@
 
 
 
-<img src="../Landing_gear_system/README.assets/landing_set.png" alt="landing_set" style="zoom:50%;" />
+<img src="README.assets/landing_set.png" alt="landing_set" style="zoom:50%;" />
 
 The simulation file is in the ***project*** folder.
 
