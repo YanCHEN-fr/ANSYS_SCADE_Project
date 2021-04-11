@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#on#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="debug" value="#on#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="moving_average"/>
+    <Option name="auth" value="#off#"/>
+    <RootNode headerFile="moving_average.h" scadeName="moving_average" targetCycleFct="moving_average" targetInitFct="moving_average_reset" targetInitializationFct="moving_average_init">
+      <Input inCtx="true" scadeName="Input1" scadeType="float64" targetName="Input1" targetType="kcg_float64"/>
+      <Input inCtx="true" scadeName="Input2" scadeType="int8" targetName="Input2" targetType="kcg_int8"/>
+      <Output inCtx="true" scadeName="Output1" scadeType="float64" targetName="Output1" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L1" scadeType="float64" targetName="_L1" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L2" scadeType="float64" targetName="_L2" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L3" scadeType="float64" targetName="_L3" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L4" scadeType="float64" targetName="_L4" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L5" scadeType="float64" targetName="_L5" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L6" scadeType="float64" targetName="_L6" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L7" scadeType="float64" targetName="_L7" targetType="kcg_float64"/>
+      <Local inCtx="true" scadeName="_L8" scadeType="int8" targetName="_L8" targetType="kcg_int8"/>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="_L1" targetType="kcg_float64"/>
+      </FbyOp>
+      <FbyOp instName="2">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_2" targetType="struct_226"/>
+      </FbyOp>
+      <FbyOp instName="3">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_3" targetType="struct_236"/>
+      </FbyOp>
+      <Fby inCtx="true" targetName="fby_3" targetType="struct_236"/>
+      <Fby inCtx="true" targetName="fby_2" targetType="struct_226"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L1" targetType="kcg_float64"/>
+      <OutCtxType targetName="outC_moving_average"/>
+      <InCtxType targetName="inC_moving_average"/>
+    </RootNode>
+    <StructType targetCompFct="kcg_comp_struct_226" targetCopyFct="kcg_copy_struct_226" targetName="struct_226">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float64_2" targetName="items" targetType="array_float64_2"/>
+    </StructType>
+    <StructType targetCompFct="kcg_comp_struct_236" targetCopyFct="kcg_copy_struct_236" targetName="struct_236">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float64_3" targetName="items" targetType="array_float64_3"/>
+    </StructType>
+    <ArrayType cellType="kcg_float64" size="3" targetCompFct="kcg_comp_array_float64_3" targetCopyFct="kcg_copy_array_float64_3" targetName="array_float64_3"/>
+    <ArrayType cellType="kcg_float64" size="2" targetCompFct="kcg_comp_array_float64_2" targetCopyFct="kcg_copy_array_float64_2" targetName="array_float64_2"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

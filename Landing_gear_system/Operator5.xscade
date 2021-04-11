@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="AnalogicalSwitchMonitoring">
+			<inputs>
+				<Variable name="trigger">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/4f3b/26F7/3F0/604fc3d65fd6" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+							<comment>trigger to start the analogical_switch.</comment>
+						</ed:Variable>
+					</pragmas>
+				</Variable>
+				<Variable name="analogical_switch">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/50b5/26F7/3F0/604fca88125d"/>
+					</pragmas>
+				</Variable>
+				<Variable name="open_time">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/50c8/26F7/3F0/604fcaec178e"/>
+					</pragmas>
+				</Variable>
+				<Variable name="close_time">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/50fe/26F7/3F0/604fcbe37ed4"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="switch_anomal">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/4fc8/26F7/3F0/604fc503b9c"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="normal">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="State3"/>
+									</target>
+									<condition>
+										<!-- trigger = true and analogical_switch = false -->
+										<NAryOp name="8" operator="and">
+											<operands>
+												<!-- trigger = true -->
+												<BinaryOp name="13" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="trigger"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- analogical_switch = false -->
+												<BinaryOp name="14" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="analogical_switch"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="false"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/af5e/5EB5/D38/605cfc80718" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+											<comment>open constraints</comment>
+										</ed:Transition>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="State4"/>
+									</target>
+									<condition>
+										<!-- trigger = false and analogical_switch = true -->
+										<NAryOp name="9" operator="and">
+											<operands>
+												<!-- trigger = false -->
+												<BinaryOp name="15" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="trigger"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="false"/>
+													</operands>
+												</BinaryOp>
+												<!-- analogical_switch = true -->
+												<BinaryOp name="16" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="analogical_switch"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/afbf/5EB5/D38/605cfcee6a77" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+											<comment>close constraints</comment>
+										</ed:Transition>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5070/26F7/3F0/604fca127b0a"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- switch_anomal = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="switch_anomal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5068/26F7/3F0/604fca0d7129"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/506f/26F7/3F0/604fca123625"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/505d/26F7/3F0/604fc9aa657"/>
+							</pragmas>
+						</State>
+						<State name="invalid">
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5093/26F7/3F0/604fca2e51f"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- switch_anomal = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="switch_anomal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/508a/26F7/3F0/604fca2abc0"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5092/26F7/3F0/604fca2e48f4"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/5080/26F7/3F0/604fca1ee46"/>
+							</pragmas>
+						</State>
+						<State name="State3">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="invalid"/>
+									</target>
+									<condition>
+										<!-- (open_time times true) and  not analogical_switch -->
+										<NAryOp name="12" operator="and">
+											<operands>
+												<!-- (open_time times true) -->
+												<BinaryOp name="11" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="open_time"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!--  not analogical_switch -->
+												<UnaryOp name="1" operator="not">
+													<operand>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="analogical_switch"/>
+															</path>
+														</IdExpression>
+													</operand>
+												</UnaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/af73/5EB5/D38/605cfc9342ea"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/af97/5EB5/D38/605cfcbd7c38"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- switch_anomal = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="switch_anomal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/af87/5EB5/D38/605cfcaf5fd3"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/af96/5EB5/D38/605cfcbd524a"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/af4d/5EB5/D38/605cfc734475"/>
+							</pragmas>
+						</State>
+						<State name="State4">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="invalid"/>
+									</target>
+									<condition>
+										<!-- (close_time times true) and analogical_switch -->
+										<NAryOp name="11" operator="and">
+											<operands>
+												<!-- (close_time times true) -->
+												<BinaryOp name="10" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="close_time"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<IdExpression>
+													<path>
+														<ConstVarRef name="analogical_switch"/>
+													</path>
+												</IdExpression>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/afd1/5EB5/D38/605cfcfd2375"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/affe/5EB5/D38/605cfd29705f"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- switch_anomal = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="switch_anomal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/afea/5EB5/D38/605cfd1b7b1c"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/affd/5EB5/D38/605cfd295a5e"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/afac/5EB5/D38/605cfcc86e57"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/5058/26F7/3F0/604fc8f469c8"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator commentsToC="true" oid="!ed/4f21/26F7/3F0/604fc2a38fe" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+					<comment>Node to monitor the errors when controlling analogical_switch</comment>
+					<diagrams>
+						<NetDiagram name="AnalogicalSwitchMonitoring_1" landscape="true" format="A4 (210 297)" oid="!ed/4f22/26F7/3F0/604fc2a31541">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/5058/26F7/3F0/604fc8f469c8">
+									<position>
+										<Point x="2064" y="2275"/>
+									</position>
+									<size>
+										<Size width="18177" height="10822"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/505d/26F7/3F0/604fc9aa657">
+									<position>
+										<Point x="2275" y="4763"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/5068/26F7/3F0/604fca0d7129">
+									<position>
+										<Point x="4630" y="6826"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/506f/26F7/3F0/604fca123625">
+									<position>
+										<Point x="3863" y="6932"/>
+									</position>
+									<size>
+										<Size width="211" height="317"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/506f/26F7/3F0/604fca123625" dstEquation="!ed/5068/26F7/3F0/604fca0d7129">
+									<positions>
+										<Point x="4075" y="7091"/>
+										<Point x="4604" y="7091"/>
+										<Point x="4604" y="7091"/>
+										<Point x="4683" y="7091"/>
+									</positions>
+								</Edge>
+								<StateGE presentable="!ed/5080/26F7/3F0/604fca1ee46">
+									<position>
+										<Point x="15134" y="4842"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/508a/26F7/3F0/604fca2abc0">
+									<position>
+										<Point x="17595" y="6773"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5092/26F7/3F0/604fca2e48f4">
+									<position>
+										<Point x="16457" y="6906"/>
+									</position>
+									<size>
+										<Size width="212" height="317"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5092/26F7/3F0/604fca2e48f4" dstEquation="!ed/508a/26F7/3F0/604fca2abc0">
+									<positions>
+										<Point x="16669" y="7064"/>
+										<Point x="17145" y="7064"/>
+										<Point x="17145" y="7064"/>
+										<Point x="17648" y="7064"/>
+									</positions>
+								</Edge>
+								<StateGE presentable="!ed/af4d/5EB5/D38/605cfc734475">
+									<position>
+										<Point x="8493" y="2540"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<TransitionGE presentable="!ed/af5e/5EB5/D38/605cfc80718">
+									<textAreas>
+										<TextArea text="trigger=true and analogical_switch=false" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="5583" y="4763"/>
+										<Point x="6535" y="4551"/>
+										<Point x="7488" y="4339"/>
+										<Point x="8493" y="4101"/>
+									</positions>
+									<labelSize>
+										<Size width="5794" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="2249" y="3731"/>
+									</labelPos>
+									<slashPos>
+										<Point x="7250" y="3731"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/af73/5EB5/D38/605cfc9342ea">
+									<textAreas>
+										<TextArea text=" (open_time times true) and not(analogical_switch)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="13203" y="4128"/>
+										<Point x="14367" y="4366"/>
+										<Point x="15531" y="4604"/>
+										<Point x="16695" y="4842"/>
+									</positions>
+									<labelSize>
+										<Size width="7461" height="5715"/>
+									</labelSize>
+									<labelPos>
+										<Point x="12884" y="3625"/>
+									</labelPos>
+									<slashPos>
+										<Point x="19553" y="3625"/>
+									</slashPos>
+								</TransitionGE>
+								<EquationGE presentable="!ed/af87/5EB5/D38/605cfcaf5fd3">
+									<position>
+										<Point x="10795" y="4815"/>
+									</position>
+									<size>
+										<Size width="318" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/af96/5EB5/D38/605cfcbd524a">
+									<position>
+										<Point x="9631" y="4948"/>
+									</position>
+									<size>
+										<Size width="212" height="317"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/af96/5EB5/D38/605cfcbd524a" dstEquation="!ed/af87/5EB5/D38/605cfcaf5fd3">
+									<positions>
+										<Point x="9843" y="5106"/>
+										<Point x="10345" y="5106"/>
+										<Point x="10345" y="5106"/>
+										<Point x="10848" y="5106"/>
+									</positions>
+								</Edge>
+								<StateGE presentable="!ed/afac/5EB5/D38/605cfcc86e57">
+									<position>
+										<Point x="8387" y="9102"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<TransitionGE presentable="!ed/afbf/5EB5/D38/605cfcee6a77">
+									<textAreas>
+										<TextArea text="trigger=false and analogical_switch=true" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="5265" y="8361"/>
+										<Point x="6297" y="9208"/>
+										<Point x="7329" y="10054"/>
+										<Point x="8387" y="10927"/>
+									</positions>
+									<labelSize>
+										<Size width="5794" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="2328" y="9947"/>
+									</labelPos>
+									<slashPos>
+										<Point x="7329" y="9948"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/afd1/5EB5/D38/605cfcfd2375">
+									<positions>
+										<Point x="13097" y="10769"/>
+										<Point x="14393" y="10001"/>
+										<Point x="15690" y="9234"/>
+										<Point x="17039" y="8440"/>
+									</positions>
+									<labelSize>
+										<Size width="6985" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="13203" y="10663"/>
+									</labelPos>
+									<slashPos>
+										<Point x="19394" y="10663"/>
+									</slashPos>
+								</TransitionGE>
+								<EquationGE presentable="!ed/afea/5EB5/D38/605cfd1b7b1c">
+									<position>
+										<Point x="10345" y="10980"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/affd/5EB5/D38/605cfd295a5e">
+									<position>
+										<Point x="9631" y="11086"/>
+									</position>
+									<size>
+										<Size width="211" height="318"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/affd/5EB5/D38/605cfd295a5e" dstEquation="!ed/afea/5EB5/D38/605cfd1b7b1c">
+									<positions>
+										<Point x="9843" y="11245"/>
+										<Point x="10107" y="11245"/>
+										<Point x="10107" y="11245"/>
+										<Point x="10398" y="11245"/>
+									</positions>
+								</Edge>
+							</presentationElements>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+				<kcg:Pragma>
+					doc Node to monitor the errors when controlling analogical_switch
+				</kcg:Pragma>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>

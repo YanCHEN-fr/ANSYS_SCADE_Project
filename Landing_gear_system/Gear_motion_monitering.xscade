@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="GearMotionMonitering">
+			<inputs>
+				<Variable name="gear_retracted">
+					<type>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<ConstValue value="3"/>
+							</size>
+						</Table>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5196/3A9A/D70/60564c5f559e"/>
+					</pragmas>
+				</Variable>
+				<Variable name="retract_EV">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5197/3A9A/D70/60564c5f1a8"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration1">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5198/3A9A/D70/60564c5f1504"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration2">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5199/3A9A/D70/60564c5f74b2"/>
+					</pragmas>
+				</Variable>
+				<Variable name="gear_extended">
+					<type>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<ConstValue value="3"/>
+							</size>
+						</Table>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/519a/3A9A/D70/60564c5f27d6"/>
+					</pragmas>
+				</Variable>
+				<Variable name="extend_EV">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/519b/3A9A/D70/60564c5f7993"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="normal">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5194/3A9A/D70/60564c5f70de"/>
+					</pragmas>
+				</Variable>
+				<Variable name="abnormal">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5195/3A9A/D70/60564c5f1c3f"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="nomal">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="abnormal"/>
+									</target>
+									<condition>
+										<!-- retract_EV = true and  not (duration1 times true) and (gear_retracted[0] = true o... -->
+										<NAryOp name="1" operator="and">
+											<operands>
+												<!-- retract_EV = true -->
+												<BinaryOp name="1" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="retract_EV"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!--  not (duration1 times true) -->
+												<UnaryOp name="1" operator="not">
+													<operand>
+														<!-- (duration1 times true) -->
+														<BinaryOp name="1" operator="times">
+															<operands>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="duration1"/>
+																	</path>
+																</IdExpression>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+													</operand>
+												</UnaryOp>
+												<!-- (gear_retracted[0] = true or gear_retracted[1] = true or gear_retracted[2] = true... -->
+												<NAryOp name="1" operator="or">
+													<operands>
+														<!-- gear_retracted[0] = true -->
+														<BinaryOp name="2" operator="=">
+															<operands>
+																<!-- gear_retracted[0] -->
+																<PrjOp name="1">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_retracted"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="0"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_retracted[1] = true -->
+														<BinaryOp name="3" operator="=">
+															<operands>
+																<!-- gear_retracted[1] -->
+																<PrjOp name="2">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_retracted"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="1"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_retracted[2] = true -->
+														<BinaryOp name="4" operator="=">
+															<operands>
+																<!-- gear_retracted[2] -->
+																<PrjOp name="3">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_retracted"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="2"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+													</operands>
+												</NAryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/5188/3A9A/D70/60564c5f203f"/>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="abnormal"/>
+									</target>
+									<condition>
+										<!-- extend_EV = true and (gear_extended[0] = true or gear_extended[1] = true or gear_... -->
+										<NAryOp name="2" operator="and">
+											<operands>
+												<!-- extend_EV = true -->
+												<BinaryOp name="5" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="extend_EV"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- (gear_extended[0] = true or gear_extended[1] = true or gear_extended[2] = true) -->
+												<NAryOp name="2" operator="or">
+													<operands>
+														<!-- gear_extended[0] = true -->
+														<BinaryOp name="6" operator="=">
+															<operands>
+																<!-- gear_extended[0] -->
+																<PrjOp name="4">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_extended"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="0"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_extended[1] = true -->
+														<BinaryOp name="7" operator="=">
+															<operands>
+																<!-- gear_extended[1] -->
+																<PrjOp name="5">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_extended"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="1"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_extended[2] = true -->
+														<BinaryOp name="8" operator="=">
+															<operands>
+																<!-- gear_extended[2] -->
+																<PrjOp name="6">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_extended"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="2"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+													</operands>
+												</NAryOp>
+												<!--  not (duration1 times true) -->
+												<UnaryOp name="2" operator="not">
+													<operand>
+														<!-- (duration1 times true) -->
+														<BinaryOp name="2" operator="times">
+															<operands>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="duration1"/>
+																	</path>
+																</IdExpression>
+																<ConstValue value="true"/>
+															</operands>
+														</BinaryOp>
+													</operand>
+												</UnaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/5189/3A9A/D70/60564c5f183a"/>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="abnormal"/>
+									</target>
+									<condition>
+										<!-- retract_EV = true and (duration2 times true) and (gear_retracted[0] = false or ge... -->
+										<NAryOp name="3" operator="and">
+											<operands>
+												<!-- retract_EV = true -->
+												<BinaryOp name="9" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="retract_EV"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- (duration2 times true) -->
+												<BinaryOp name="3" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration2"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- (gear_retracted[0] = false or gear_retracted[1] = false or gear_retracted[2] = fa... -->
+												<NAryOp name="3" operator="or">
+													<operands>
+														<!-- gear_retracted[0] = false -->
+														<BinaryOp name="10" operator="=">
+															<operands>
+																<!-- gear_retracted[0] -->
+																<PrjOp name="7">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_retracted"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="0"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_retracted[1] = false -->
+														<BinaryOp name="11" operator="=">
+															<operands>
+																<!-- gear_retracted[1] -->
+																<PrjOp name="8">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_retracted"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="1"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_retracted[2] = false -->
+														<BinaryOp name="12" operator="=">
+															<operands>
+																<!-- gear_retracted[2] -->
+																<PrjOp name="9">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_retracted"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="2"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+													</operands>
+												</NAryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/518a/3A9A/D70/60564c5f7c95"/>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="abnormal"/>
+									</target>
+									<condition>
+										<!-- extend_EV = true and (gear_extended[0] = false or gear_extended[1] = false or gea... -->
+										<NAryOp name="4" operator="and">
+											<operands>
+												<!-- extend_EV = true -->
+												<BinaryOp name="13" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="extend_EV"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- (gear_extended[0] = false or gear_extended[1] = false or gear_extended[2] = false... -->
+												<NAryOp name="4" operator="or">
+													<operands>
+														<!-- gear_extended[0] = false -->
+														<BinaryOp name="14" operator="=">
+															<operands>
+																<!-- gear_extended[0] -->
+																<PrjOp name="10">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_extended"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="0"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_extended[1] = false -->
+														<BinaryOp name="15" operator="=">
+															<operands>
+																<!-- gear_extended[1] -->
+																<PrjOp name="11">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_extended"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="1"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+														<!-- gear_extended[2] = false -->
+														<BinaryOp name="16" operator="=">
+															<operands>
+																<!-- gear_extended[2] -->
+																<PrjOp name="12">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="gear_extended"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="2"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+													</operands>
+												</NAryOp>
+												<!-- (duration2 times true) -->
+												<BinaryOp name="4" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration2"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/518b/3A9A/D70/60564c5f104b"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5186/3A9A/D70/60564c5f6608"/>
+									</pragmas>
+								</Variable>
+								<Variable name="_L2">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5187/3A9A/D70/60564c5f2056"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5182/3A9A/D70/60564c5f43a3"/>
+									</pragmas>
+								</Equation>
+								<!-- normal = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="normal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5183/3A9A/D70/60564c5f7bb"/>
+									</pragmas>
+								</Equation>
+								<!-- _L2 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L2"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5184/3A9A/D70/60564c5f512a"/>
+									</pragmas>
+								</Equation>
+								<!-- abnormal = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="abnormal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5185/3A9A/D70/60564c5f18e6"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/5181/3A9A/D70/60564c5f7116"/>
+							</pragmas>
+						</State>
+						<State name="abnormal">
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5191/3A9A/D70/60564c5f4a44"/>
+									</pragmas>
+								</Variable>
+								<Variable name="_L2">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5192/3A9A/D70/60564c5f37f8"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- normal = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="normal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/518d/3A9A/D70/60564c5f1ab4"/>
+									</pragmas>
+								</Equation>
+								<!-- abnormal = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="abnormal"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/518e/3A9A/D70/60564c5f2e3b"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/518f/3A9A/D70/60564c5f255c"/>
+									</pragmas>
+								</Equation>
+								<!-- _L2 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L2"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5190/3A9A/D70/60564c5f24c9"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/518c/3A9A/D70/60564c5f61c6"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/5180/3A9A/D70/60564c5f7263"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator oid="!ed/517f/3A9A/D70/60564c5f6217" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+					<diagrams>
+						<NetDiagram name="GearMotionMonitering_1" landscape="true" format="A4 (210 297)" oid="!ed/5193/3A9A/D70/60564c5f381d">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/5180/3A9A/D70/60564c5f7263">
+									<position>
+										<Point x="1005" y="2064"/>
+									</position>
+									<size>
+										<Size width="26326" height="6720"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/5181/3A9A/D70/60564c5f7116">
+									<position>
+										<Point x="1085" y="3149"/>
+									</position>
+									<size>
+										<Size width="4709" height="4842"/>
+									</size>
+								</StateGE>
+								<StateGE presentable="!ed/518c/3A9A/D70/60564c5f61c6">
+									<position>
+										<Point x="22410" y="3228"/>
+									</position>
+									<size>
+										<Size width="4709" height="4869"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5182/3A9A/D70/60564c5f43a3">
+									<position>
+										<Point x="2381" y="4736"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/5183/3A9A/D70/60564c5f7bb">
+									<position>
+										<Point x="4551" y="4551"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5182/3A9A/D70/60564c5f43a3" dstEquation="!ed/5183/3A9A/D70/60564c5f7bb">
+									<positions>
+										<Point x="2593" y="4895"/>
+										<Point x="3598" y="4895"/>
+										<Point x="3598" y="4815"/>
+										<Point x="4604" y="4815"/>
+									</positions>
+								</Edge>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5184/3A9A/D70/60564c5f512a">
+									<position>
+										<Point x="2355" y="5636"/>
+									</position>
+									<size>
+										<Size width="211" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/5185/3A9A/D70/60564c5f18e6">
+									<position>
+										<Point x="4180" y="5503"/>
+									</position>
+									<size>
+										<Size width="318" height="502"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5184/3A9A/D70/60564c5f512a" dstEquation="!ed/5185/3A9A/D70/60564c5f18e6">
+									<positions>
+										<Point x="2566" y="5794"/>
+										<Point x="3387" y="5794"/>
+										<Point x="3387" y="5794"/>
+										<Point x="4233" y="5794"/>
+									</positions>
+								</Edge>
+								<EquationGE presentable="!ed/518d/3A9A/D70/60564c5f1ab4">
+									<position>
+										<Point x="25691" y="4445"/>
+									</position>
+									<size>
+										<Size width="318" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/518e/3A9A/D70/60564c5f2e3b">
+									<position>
+										<Point x="25612" y="5424"/>
+									</position>
+									<size>
+										<Size width="317" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/518f/3A9A/D70/60564c5f255c">
+									<position>
+										<Point x="23469" y="4524"/>
+									</position>
+									<size>
+										<Size width="211" height="317"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5190/3A9A/D70/60564c5f24c9">
+									<position>
+										<Point x="23601" y="5503"/>
+									</position>
+									<size>
+										<Size width="212" height="317"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5190/3A9A/D70/60564c5f24c9" dstEquation="!ed/518e/3A9A/D70/60564c5f2e3b">
+									<positions>
+										<Point x="23813" y="5662"/>
+										<Point x="24739" y="5662"/>
+										<Point x="24739" y="5662"/>
+										<Point x="25665" y="5662"/>
+									</positions>
+								</Edge>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/518f/3A9A/D70/60564c5f255c" dstEquation="!ed/518d/3A9A/D70/60564c5f1ab4">
+									<positions>
+										<Point x="23680" y="4683"/>
+										<Point x="24712" y="4683"/>
+										<Point x="24712" y="4683"/>
+										<Point x="25744" y="4683"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/5188/3A9A/D70/60564c5f203f">
+									<textAreas>
+										<TextArea text="(retract_EV = true) and (not (duration1 times true)) and ((gear_retracted[0] = true) or (gear_retracted[1] = true) or (gear_retracted[2] = true))" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="5794" y="4075"/>
+										<Point x="8096" y="4048"/>
+										<Point x="21775" y="4128"/>
+										<Point x="22410" y="4075"/>
+									</positions>
+									<labelSize>
+										<Size width="16245" height="318"/>
+									</labelSize>
+									<labelPos>
+										<Point x="6270" y="3439"/>
+									</labelPos>
+									<slashPos>
+										<Point x="21722" y="3439"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/5189/3A9A/D70/60564c5f183a">
+									<textAreas>
+										<TextArea text="(extend_EV = true) and (gear_extended[0] = true or gear_extended[1] = true or gear_extended[2] = true) and (not (duration1 times true))" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="5794" y="6535"/>
+										<Point x="7514" y="6482"/>
+										<Point x="20638" y="6562"/>
+										<Point x="22410" y="6456"/>
+									</positions>
+									<labelSize>
+										<Size width="15875" height="318"/>
+									</labelSize>
+									<labelPos>
+										<Point x="6138" y="5874"/>
+									</labelPos>
+									<slashPos>
+										<Point x="21219" y="5874"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/518a/3A9A/D70/60564c5f7c95">
+									<textAreas>
+										<TextArea text="(retract_EV = true) and (duration2 times true) and ((gear_retracted[0] = false) or (gear_retracted[1] = false) or (gear_retracted[2] = false))" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="5794" y="5398"/>
+										<Point x="9710" y="5345"/>
+										<Point x="18600" y="5398"/>
+										<Point x="22410" y="5424"/>
+									</positions>
+									<labelSize>
+										<Size width="16351" height="318"/>
+									</labelSize>
+									<labelPos>
+										<Point x="5953" y="4604"/>
+									</labelPos>
+									<slashPos>
+										<Point x="21510" y="4604"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/518b/3A9A/D70/60564c5f104b">
+									<textAreas>
+										<TextArea text="(extend_EV = true) and ((gear_extended[0] = false) or (gear_extended[1] = false) or (gear_extended[2] = false)) and (duration2 times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="5794" y="7567"/>
+										<Point x="11218" y="7594"/>
+										<Point x="20108" y="7726"/>
+										<Point x="22410" y="7726"/>
+									</positions>
+									<labelSize>
+										<Size width="16272" height="318"/>
+									</labelSize>
+									<labelPos>
+										<Point x="5979" y="6985"/>
+									</labelPos>
+									<slashPos>
+										<Point x="21458" y="6985"/>
+									</slashPos>
+								</TransitionGE>
+							</presentationElements>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>

@@ -1,0 +1,386 @@
+EXPORTS
+    EnumToString @1
+    ImportedToString @2
+    OutputMessageCallback @3 DATA
+    SSM_ST_SM1_nb_values @4 DATA
+    SSM_ST_SM1_to_double @5
+    SSM_ST_SM1_to_long @6
+    SSM_ST_SM1_to_string @7
+    SSM_TR_SM1_nb_values @8 DATA
+    SSM_TR_SM1_to_double @9
+    SSM_TR_SM1_to_long @10
+    SSM_TR_SM1_to_string @11
+    SimCustomInit @12
+    SimInit @13
+    SimRealloc @14
+    SimReset @15
+    SimStep @16
+    SimStop @17
+    SimStringAlloc @18
+    SimStringAllocEx @19
+    SimStringAppend @20
+    SimStringFree @21
+    SimStringGet @22
+    SimStringListAlloc @23
+    SimStringListAllocEx @24
+    SimStringListAppend @25
+    SimStringListFree @26
+    SimStringListGetCount @27
+    SimStringListGetData @28
+    SimStringListReset @29
+    SimStringReset @30
+    SsmConnectExternalInputs @31
+    SsmCustomInit @32
+    SsmGatherDumpData @33
+    SsmGetCheckSum @34
+    SsmGetConverter @35
+    SsmGetDefaultRealFormat @36
+    SsmGetDumpSize @37
+    SsmGetMapping @38
+    SsmGetSmuTypesCheckSum @39
+    SsmInit @40
+    SsmInitValues @41
+    SsmLoadSnapshot @42
+    SsmOutputMessage @43
+    SsmReset @44
+    SsmRestoreDumpData @45
+    SsmSaveSnapshot @46
+    SsmSetOutputMessageCallback @47
+    SsmSetUpdateCallback @48
+    SsmStep @49
+    SsmStop @50
+    SsmUpdateValues @51
+    StringToConstant @52
+    StringToEnum @53
+    StringToImported @54
+    UpdateSimulatorValues @55
+    UpdateSimulatorValuesCallback @56 DATA
+    VTable_to_double @57
+    VTable_to_long @58
+    _SCSIM_CheckSum @59 DATA
+    _SCSIM_SmuTypesCheckSum @60 DATA
+    _Type_SSM_ST_SM1_Utils @61 DATA
+    _Type_SSM_TR_SM1_Utils @62 DATA
+    _Type_array_bool_3_Utils @63 DATA
+    _Type_kcg_bool_Utils @64 DATA
+    _Type_kcg_char_Utils @65 DATA
+    _Type_kcg_float32_Utils @66 DATA
+    _Type_kcg_float64_Utils @67 DATA
+    _Type_kcg_int16_Utils @68 DATA
+    _Type_kcg_int32_Utils @69 DATA
+    _Type_kcg_int64_Utils @70 DATA
+    _Type_kcg_int8_Utils @71 DATA
+    _Type_kcg_size_Utils @72 DATA
+    _Type_kcg_uint16_Utils @73 DATA
+    _Type_kcg_uint32_Utils @74 DATA
+    _Type_kcg_uint64_Utils @75 DATA
+    _Type_kcg_uint8_Utils @76 DATA
+    array_bool_3_to_double @77
+    array_bool_3_to_long @78
+    array_bool_3_to_string @79
+    check_SSM_ST_SM1_string @80
+    check_SSM_TR_SM1_string @81
+    check_array_bool_3_string @82
+    check_kcg_bool_string @83
+    check_kcg_char_string @84
+    check_kcg_float32_string @85
+    check_kcg_float64_string @86
+    check_kcg_int16_string @87
+    check_kcg_int32_string @88
+    check_kcg_int64_string @89
+    check_kcg_int8_string @90
+    check_kcg_size_string @91
+    check_kcg_uint16_string @92
+    check_kcg_uint32_string @93
+    check_kcg_uint64_string @94
+    check_kcg_uint8_string @95
+    compare_SSM_ST_SM1 @96
+    compare_SSM_TR_SM1 @97
+    compare_array_bool_3 @98
+    compare_kcg_bool @99
+    compare_kcg_char @100
+    compare_kcg_float32 @101
+    compare_kcg_float64 @102
+    compare_kcg_int16 @103
+    compare_kcg_int32 @104
+    compare_kcg_int64 @105
+    compare_kcg_int8 @106
+    compare_kcg_size @107
+    compare_kcg_uint16 @108
+    compare_kcg_uint32 @109
+    compare_kcg_uint64 @110
+    compare_kcg_uint8 @111
+    copy_SSM_ST_SM1 @112
+    copy_SSM_TR_SM1 @113
+    copy_array_bool_3 @114
+    copy_kcg_bool @115
+    copy_kcg_char @116
+    copy_kcg_float32 @117
+    copy_kcg_float64 @118
+    copy_kcg_int16 @119
+    copy_kcg_int32 @120
+    copy_kcg_int64 @121
+    copy_kcg_int8 @122
+    copy_kcg_size @123
+    copy_kcg_uint16 @124
+    copy_kcg_uint32 @125
+    copy_kcg_uint64 @126
+    copy_kcg_uint8 @127
+    defaultSimToleranceDouble @128 DATA
+    defaultSimToleranceFloat @129 DATA
+    get_SSM_ST_SM1_signature @130
+    get_SSM_TR_SM1_signature @131
+    get_array_bool_3_signature @132
+    get_kcg_bool_signature @133
+    get_kcg_char_signature @134
+    get_kcg_float32_signature @135
+    get_kcg_float64_signature @136
+    get_kcg_int16_signature @137
+    get_kcg_int32_signature @138
+    get_kcg_int64_signature @139
+    get_kcg_int8_signature @140
+    get_kcg_size_signature @141
+    get_kcg_uint16_signature @142
+    get_kcg_uint32_signature @143
+    get_kcg_uint64_signature @144
+    get_kcg_uint8_signature @145
+    init_SSM_ST_SM1 @146
+    init_SSM_TR_SM1 @147
+    init_array_bool_3 @148
+    init_kcg_bool @149
+    init_kcg_char @150
+    init_kcg_float32 @151
+    init_kcg_float64 @152
+    init_kcg_int16 @153
+    init_kcg_int32 @154
+    init_kcg_int64 @155
+    init_kcg_int8 @156
+    init_kcg_size @157
+    init_kcg_uint16 @158
+    init_kcg_uint32 @159
+    init_kcg_uint64 @160
+    init_kcg_uint8 @161
+    inputs_ctx @162 DATA
+    is_SSM_ST_SM1_double_conversion_allowed @163
+    is_SSM_ST_SM1_long_conversion_allowed @164
+    is_SSM_TR_SM1_double_conversion_allowed @165
+    is_SSM_TR_SM1_long_conversion_allowed @166
+    is_VTable_double_conversion_allowed @167
+    is_VTable_long_conversion_allowed @168
+    is_array_bool_3_double_conversion_allowed @169
+    is_array_bool_3_long_conversion_allowed @170
+    is_kcg_bool_double_conversion_allowed @171
+    is_kcg_bool_long_conversion_allowed @172
+    is_kcg_char_double_conversion_allowed @173
+    is_kcg_char_long_conversion_allowed @174
+    is_kcg_float32_double_conversion_allowed @175
+    is_kcg_float32_long_conversion_allowed @176
+    is_kcg_float64_double_conversion_allowed @177
+    is_kcg_float64_long_conversion_allowed @178
+    is_kcg_int16_double_conversion_allowed @179
+    is_kcg_int16_long_conversion_allowed @180
+    is_kcg_int32_double_conversion_allowed @181
+    is_kcg_int32_long_conversion_allowed @182
+    is_kcg_int64_double_conversion_allowed @183
+    is_kcg_int64_long_conversion_allowed @184
+    is_kcg_int8_double_conversion_allowed @185
+    is_kcg_int8_long_conversion_allowed @186
+    is_kcg_size_double_conversion_allowed @187
+    is_kcg_size_long_conversion_allowed @188
+    is_kcg_uint16_double_conversion_allowed @189
+    is_kcg_uint16_long_conversion_allowed @190
+    is_kcg_uint32_double_conversion_allowed @191
+    is_kcg_uint32_long_conversion_allowed @192
+    is_kcg_uint64_double_conversion_allowed @193
+    is_kcg_uint64_long_conversion_allowed @194
+    is_kcg_uint8_double_conversion_allowed @195
+    is_kcg_uint8_long_conversion_allowed @196
+    iter_array_3 @197 DATA
+    kcg_bool_to_double @198
+    kcg_bool_to_long @199
+    kcg_bool_to_string @200
+    kcg_char_to_double @201
+    kcg_char_to_long @202
+    kcg_char_to_string @203
+    kcg_float32_to_double @204
+    kcg_float32_to_long @205
+    kcg_float32_to_string @206
+    kcg_float64_to_double @207
+    kcg_float64_to_long @208
+    kcg_float64_to_string @209
+    kcg_int16_to_double @210
+    kcg_int16_to_long @211
+    kcg_int16_to_string @212
+    kcg_int32_to_double @213
+    kcg_int32_to_long @214
+    kcg_int32_to_string @215
+    kcg_int64_to_double @216
+    kcg_int64_to_long @217
+    kcg_int64_to_string @218
+    kcg_int8_to_double @219
+    kcg_int8_to_long @220
+    kcg_int8_to_string @221
+    kcg_size_to_double @222
+    kcg_size_to_long @223
+    kcg_size_to_string @224
+    kcg_uint16_to_double @225
+    kcg_uint16_to_long @226
+    kcg_uint16_to_string @227
+    kcg_uint32_to_double @228
+    kcg_uint32_to_long @229
+    kcg_uint32_to_string @230
+    kcg_uint64_to_double @231
+    kcg_uint64_to_long @232
+    kcg_uint64_to_string @233
+    kcg_uint8_to_double @234
+    kcg_uint8_to_long @235
+    kcg_uint8_to_string @236
+    nSsmRtVersion @237 DATA
+    outputs_ctx @238 DATA
+    pConverter @239 DATA
+    pSimBoolVTable @240 DATA
+    pSimCharVTable @241 DATA
+    pSimFloat32VTable @242 DATA
+    pSimFloat64VTable @243 DATA
+    pSimInt16VTable @244 DATA
+    pSimInt32VTable @245 DATA
+    pSimInt64VTable @246 DATA
+    pSimInt8VTable @247 DATA
+    pSimSSM_ST_SM1VTable @248 DATA
+    pSimSSM_TR_SM1VTable @249 DATA
+    pSimSizeVTable @250 DATA
+    pSimUint16VTable @251 DATA
+    pSimUint32VTable @252 DATA
+    pSimUint64VTable @253 DATA
+    pSimUint8VTable @254 DATA
+    pSimarray_bool_3VTable @255 DATA
+    pSimoutC_voteur2CIVTable @256 DATA
+    pSimulator @257 DATA
+    pTop @258 DATA
+    predef_compare_enum @259
+    predef_compare_kcg_bool @260
+    predef_compare_kcg_char @261
+    predef_compare_kcg_float32 @262
+    predef_compare_kcg_float64 @263
+    predef_compare_kcg_int16 @264
+    predef_compare_kcg_int32 @265
+    predef_compare_kcg_int64 @266
+    predef_compare_kcg_int8 @267
+    predef_compare_kcg_size @268
+    predef_compare_kcg_uint16 @269
+    predef_compare_kcg_uint32 @270
+    predef_compare_kcg_uint64 @271
+    predef_compare_kcg_uint8 @272
+    predef_int_to_string @273
+    predef_kcg_bool_to_string @274
+    predef_kcg_char_to_string @275
+    predef_kcg_float32_to_string @276
+    predef_kcg_float64_to_string @277
+    predef_kcg_int16_to_string @278
+    predef_kcg_int32_to_string @279
+    predef_kcg_int64_to_string @280
+    predef_kcg_int8_to_string @281
+    predef_kcg_size_to_string @282
+    predef_kcg_uint16_to_string @283
+    predef_kcg_uint32_to_string @284
+    predef_kcg_uint64_to_string @285
+    predef_kcg_uint8_to_string @286
+    predef_string_to_kcg_bool @287
+    predef_string_to_kcg_char @288
+    predef_string_to_kcg_float32 @289
+    predef_string_to_kcg_float64 @290
+    predef_string_to_kcg_int16 @291
+    predef_string_to_kcg_int32 @292
+    predef_string_to_kcg_int64 @293
+    predef_string_to_kcg_int8 @294
+    predef_string_to_kcg_size @295
+    predef_string_to_kcg_uint16 @296
+    predef_string_to_kcg_uint32 @297
+    predef_string_to_kcg_uint64 @298
+    predef_string_to_kcg_uint8 @299
+    release_SSM_ST_SM1 @300
+    release_SSM_TR_SM1 @301
+    release_array_bool_3 @302
+    release_kcg_bool @303
+    release_kcg_char @304
+    release_kcg_float32 @305
+    release_kcg_float64 @306
+    release_kcg_int16 @307
+    release_kcg_int32 @308
+    release_kcg_int64 @309
+    release_kcg_int8 @310
+    release_kcg_size @311
+    release_kcg_uint16 @312
+    release_kcg_uint32 @313
+    release_kcg_uint64 @314
+    release_kcg_uint8 @315
+    rt_version @316 DATA
+    scope_0 @317 DATA
+    scope_0_entries @318 DATA
+    scope_1 @319 DATA
+    scope_10 @320 DATA
+    scope_10_entries @321 DATA
+    scope_11 @322 DATA
+    scope_11_entries @323 DATA
+    scope_12 @324 DATA
+    scope_12_entries @325 DATA
+    scope_13 @326 DATA
+    scope_13_entries @327 DATA
+    scope_14 @328 DATA
+    scope_14_entries @329 DATA
+    scope_15 @330 DATA
+    scope_15_entries @331 DATA
+    scope_16 @332 DATA
+    scope_16_entries @333 DATA
+    scope_1_entries @334 DATA
+    scope_2 @335 DATA
+    scope_2_entries @336 DATA
+    scope_3 @337 DATA
+    scope_3_entries @338 DATA
+    scope_4 @339 DATA
+    scope_4_entries @340 DATA
+    scope_5 @341 DATA
+    scope_5_entries @342 DATA
+    scope_6 @343 DATA
+    scope_6_entries @344 DATA
+    scope_7 @345 DATA
+    scope_7_entries @346 DATA
+    scope_8 @347 DATA
+    scope_8_entries @348 DATA
+    scope_9 @349 DATA
+    scope_9_entries @350 DATA
+    ssm_char_to_string @351
+    ssm_double_to_string @352
+    ssm_float_to_string @353
+    ssm_int_to_base_string @354
+    ssm_int_to_string @355
+    ssm_real_to_string_ @356
+    ssm_string_to_char @357
+    ssm_string_to_char_ @358
+    ssm_string_to_double @359
+    ssm_string_to_float @360
+    ssm_string_to_int @361
+    ssm_string_to_int_ @362
+    ssm_string_to_real_ @363
+    strDefaultRealFormat @364 DATA
+    string_to_SSM_ST_SM1 @365
+    string_to_SSM_TR_SM1 @366
+    string_to_VTable @367
+    string_to_array_bool_3 @368
+    string_to_kcg_bool @369
+    string_to_kcg_char @370
+    string_to_kcg_float32 @371
+    string_to_kcg_float64 @372
+    string_to_kcg_int16 @373
+    string_to_kcg_int32 @374
+    string_to_kcg_int64 @375
+    string_to_kcg_int8 @376
+    string_to_kcg_size @377
+    string_to_kcg_uint16 @378
+    string_to_kcg_uint32 @379
+    string_to_kcg_uint64 @380
+    string_to_kcg_uint8 @381
+    updateCompareResult @382
+    voteur2 @383
+    voteur2_init @384
+    voteur2_reset @385

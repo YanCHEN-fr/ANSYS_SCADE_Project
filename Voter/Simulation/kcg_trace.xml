@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="C:/Users/Administrator/Desktop/ROB301/statemachine/Simulation/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#on#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="debug" value="#on#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="C:/Users/Administrator/Desktop/ROB301/statemachine/Simulation"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="voteur2"/>
+    <Option name="auth" value="#off#"/>
+    <RootNode headerFile="voteur2.h" scadeName="voteur2" targetCycleFct="voteur2" targetInitFct="voteur2_reset" targetInitializationFct="voteur2_init">
+      <Input inCtx="true" scadeName="X" scadeType="bool^(3)" targetName="X" targetType="array_bool_3"/>
+      <Output inCtx="true" scadeName="error" scadeType="bool" targetName="error" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="Y" scadeType="bool" targetName="Y" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="SSM_ST_SM1" targetTransitionsType="SSM_TR_SM1">
+        <State scadeName="Initial" targetName="SSM_st_Initial_SM1">
+          <Local clockVal="SSM_st_Initial_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_Initial_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_Initial_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_Initial_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="X1" targetName="SSM_TR_Initial_X1_1_Initial_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="X1_2" targetName="SSM_TR_Initial_X1_2_2_Initial_SM1"/>
+          </Fork>
+          <Fork priority="3">
+            <Condition/>
+            <Transition kind="strong" scadeDest="X2" targetName="SSM_TR_Initial_X2_3_Initial_SM1"/>
+          </Fork>
+          <Fork priority="4">
+            <Condition/>
+            <Transition kind="strong" scadeDest="X3" targetName="SSM_TR_Initial_X3_4_Initial_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="X1" targetName="SSM_st_X1_SM1">
+          <Local clockVal="SSM_st_X1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_X1_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_X1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_X1_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="error" targetName="SSM_TR_X1_error_1_X1_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="X3" targetName="SSM_st_X3_SM1">
+          <Local clockVal="SSM_st_X3_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_X3_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_X3_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_X3_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="error" targetName="SSM_TR_X3_error_1_X3_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="X2" targetName="SSM_st_X2_SM1">
+          <Local clockVal="SSM_st_X2_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_X2_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_X2_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_X2_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="error" targetName="SSM_TR_X2_error_1_X2_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="X1_2" targetName="SSM_st_X1_2_SM1">
+          <Local clockVal="SSM_st_X1_2_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_X1_2_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_X1_2_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_X1_2_SM1" targetType="kcg_bool"/>
+        </State>
+        <State scadeName="error" targetName="SSM_st_error_SM1">
+          <Local clockVal="SSM_st_error_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_error_SM1" targetType="kcg_bool"/>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_voteur2"/>
+      <InCtxType targetName="inC_voteur2"/>
+    </RootNode>
+    <ArrayType cellType="kcg_bool" size="3" targetCompFct="kcg_comp_array_bool_3" targetCopyFct="kcg_copy_array_bool_3" targetName="array_bool_3"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

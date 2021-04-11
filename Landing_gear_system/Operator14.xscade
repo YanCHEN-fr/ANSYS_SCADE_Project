@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="electro_valve_doors_close">
+			<inputs>
+				<Variable name="analogical_switch">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/58e8/1575/1180/605810916c4d"/>
+					</pragmas>
+				</Variable>
+				<Variable name="close_EV">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5852/1575/1180/60580e732e32"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="close_door">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/585b/1575/1180/60580ed7692f"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="DooNotclose">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="InterNot2Close"/>
+									</target>
+									<condition>
+										<!-- close_EV and analogical_switch -->
+										<NAryOp name="19" operator="and">
+											<operands>
+												<IdExpression>
+													<path>
+														<ConstVarRef name="close_EV"/>
+													</path>
+												</IdExpression>
+												<IdExpression>
+													<path>
+														<ConstVarRef name="analogical_switch"/>
+													</path>
+												</IdExpression>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/add2/5EB5/D38/605cf8321b92"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5871/1575/1180/60580eee7e3e"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- close_door = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="close_door"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5864/1575/1180/60580ee83857"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5870/1575/1180/60580eee3205"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/5834/1575/1180/60580c06ebf"/>
+							</pragmas>
+						</State>
+						<State name="DoorClose">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="InterClose2Not"/>
+									</target>
+									<condition>
+										<!--  not close_EV and  not analogical_switch -->
+										<NAryOp name="18" operator="and">
+											<operands>
+												<!--  not close_EV -->
+												<UnaryOp name="4" operator="not">
+													<operand>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="close_EV"/>
+															</path>
+														</IdExpression>
+													</operand>
+												</UnaryOp>
+												<!--  not analogical_switch -->
+												<UnaryOp name="5" operator="not">
+													<operand>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="analogical_switch"/>
+															</path>
+														</IdExpression>
+													</operand>
+												</UnaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/ad80/5EB5/D38/605cf7d832c5"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5886/1575/1180/60580ef83191"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5885/1575/1180/60580ef86fe9"/>
+									</pragmas>
+								</Equation>
+								<!-- close_door = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="close_door"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/588d/1575/1180/60580efd77d1"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/583c/1575/1180/60580c0a1b5b"/>
+							</pragmas>
+						</State>
+						<State name="InterClose2Not">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="DooNotclose"/>
+									</target>
+									<condition>
+										<!-- 12 times true -->
+										<BinaryOp name="12" operator="times">
+											<operands>
+												<ConstValue value="12"/>
+												<ConstValue value="true"/>
+											</operands>
+										</BinaryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/ada0/5EB5/D38/605cf7f73187"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L2">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/ad68/5EB5/D38/605cf7c0419c"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L2 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L2"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ad67/5EB5/D38/605cf7c03977"/>
+									</pragmas>
+								</Equation>
+								<!-- close_door = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="close_door"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ad77/5EB5/D38/605cf7cd41ed"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/ad3b/5EB5/D38/605cf7772645"/>
+							</pragmas>
+						</State>
+						<State name="InterNot2Close">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="DoorClose"/>
+									</target>
+									<condition>
+										<!-- 8 times true -->
+										<BinaryOp name="13" operator="times">
+											<operands>
+												<ConstValue value="8"/>
+												<ConstValue value="true"/>
+											</operands>
+										</BinaryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/ade6/5EB5/D38/605cf8412dfc"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/adb6/5EB5/D38/605cf82364cf"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/adb5/5EB5/D38/605cf823626b"/>
+									</pragmas>
+								</Equation>
+								<!-- close_door = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="close_door"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/adc4/5EB5/D38/605cf8281a5a"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/adab/5EB5/D38/605cf81423a6"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/582c/1575/1180/60580bfd7328"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator oid="!ed/5827/1575/1180/60580be236d8" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+					<diagrams>
+						<NetDiagram name="electro_valve_doors_close_1" landscape="true" format="A4 (210 297)" oid="!ed/5828/1575/1180/60580be2fe3">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/582c/1575/1180/60580bfd7328">
+									<position>
+										<Point x="4657" y="1244"/>
+									</position>
+									<size>
+										<Size width="18679" height="13017"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/5834/1575/1180/60580c06ebf">
+									<position>
+										<Point x="5027" y="4921"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<StateGE presentable="!ed/583c/1575/1180/60580c0a1b5b">
+									<position>
+										<Point x="18150" y="4948"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/5864/1575/1180/60580ee83857">
+									<position>
+										<Point x="7514" y="6932"/>
+									</position>
+									<size>
+										<Size width="317" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5870/1575/1180/60580eee3205">
+									<position>
+										<Point x="6615" y="7038"/>
+									</position>
+									<size>
+										<Size width="211" height="317"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5870/1575/1180/60580eee3205" dstEquation="!ed/5864/1575/1180/60580ee83857">
+									<positions>
+										<Point x="6826" y="7197"/>
+										<Point x="7699" y="7197"/>
+										<Point x="7699" y="7197"/>
+										<Point x="7567" y="7197"/>
+									</positions>
+								</Edge>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5885/1575/1180/60580ef86fe9">
+									<position>
+										<Point x="19420" y="7144"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/588d/1575/1180/60580efd77d1">
+									<position>
+										<Point x="20558" y="7011"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5885/1575/1180/60580ef86fe9" dstEquation="!ed/588d/1575/1180/60580efd77d1">
+									<positions>
+										<Point x="19632" y="7303"/>
+										<Point x="20638" y="7303"/>
+										<Point x="20638" y="7303"/>
+										<Point x="20611" y="7303"/>
+									</positions>
+								</Edge>
+								<StateGE presentable="!ed/ad3b/5EB5/D38/605cf7772645">
+									<position>
+										<Point x="11245" y="9710"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/ad67/5EB5/D38/605cf7c03977">
+									<position>
+										<Point x="12806" y="11986"/>
+									</position>
+									<size>
+										<Size width="211" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/ad77/5EB5/D38/605cf7cd41ed">
+									<position>
+										<Point x="13970" y="11800"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/ad67/5EB5/D38/605cf7c03977" dstEquation="!ed/ad77/5EB5/D38/605cf7cd41ed">
+									<positions>
+										<Point x="13018" y="12144"/>
+										<Point x="13520" y="12144"/>
+										<Point x="13520" y="12065"/>
+										<Point x="14023" y="12065"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/ad80/5EB5/D38/605cf7d832c5">
+									<textAreas>
+										<TextArea text="not(close_EV) and not(analogical_switch)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="19526" y="8546"/>
+										<Point x="18336" y="9446"/>
+										<Point x="17145" y="10345"/>
+										<Point x="15954" y="11271"/>
+									</positions>
+									<labelSize>
+										<Size width="5795" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="16033" y="10848"/>
+									</labelPos>
+									<slashPos>
+										<Point x="21034" y="10848"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/ada0/5EB5/D38/605cf7f73187">
+									<textAreas>
+										<TextArea text=" (12 times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="11245" y="11589"/>
+										<Point x="10345" y="10583"/>
+										<Point x="9446" y="9578"/>
+										<Point x="8493" y="8519"/>
+									</positions>
+									<labelSize>
+										<Size width="4180" height="3810"/>
+									</labelSize>
+									<labelPos>
+										<Point x="6218" y="11588"/>
+									</labelPos>
+									<slashPos>
+										<Point x="9604" y="11588"/>
+									</slashPos>
+								</TransitionGE>
+								<StateGE presentable="!ed/adab/5EB5/D38/605cf81423a6">
+									<position>
+										<Point x="11589" y="1508"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/adb5/5EB5/D38/605cf823626b">
+									<position>
+										<Point x="13229" y="3466"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/adc4/5EB5/D38/605cf8281a5a">
+									<position>
+										<Point x="14817" y="3360"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/adb5/5EB5/D38/605cf823626b" dstEquation="!ed/adc4/5EB5/D38/605cf8281a5a">
+									<positions>
+										<Point x="13441" y="3625"/>
+										<Point x="14155" y="3625"/>
+										<Point x="14155" y="3625"/>
+										<Point x="14870" y="3625"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/add2/5EB5/D38/605cf8321b92">
+									<textAreas>
+										<TextArea text="(close_EV) and (analogical_switch)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="9340" y="4921"/>
+										<Point x="10081" y="4419"/>
+										<Point x="10821" y="3916"/>
+										<Point x="11589" y="3413"/>
+									</positions>
+									<labelSize>
+										<Size width="5000" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="6906" y="3043"/>
+									</labelPos>
+									<slashPos>
+										<Point x="11113" y="3043"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/ade6/5EB5/D38/605cf8412dfc">
+									<textAreas>
+										<TextArea text="(8 times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="16298" y="3122"/>
+										<Point x="17357" y="3731"/>
+										<Point x="18415" y="4339"/>
+										<Point x="19526" y="4948"/>
+									</positions>
+									<labelSize>
+										<Size width="3043" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="16484" y="2752"/>
+									</labelPos>
+									<slashPos>
+										<Point x="18733" y="2752"/>
+									</slashPos>
+								</TransitionGE>
+							</presentationElements>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>

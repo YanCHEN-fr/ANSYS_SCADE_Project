@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="C:/Users/Administrator/Desktop/ROB301/PressionDetector/Simulation/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#on#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="debug" value="#on#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="C:/Users/Administrator/Desktop/ROB301/PressionDetector/Simulation"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="main"/>
+    <Option name="auth" value="#off#"/>
+    <RootNode headerFile="main.h" scadeName="main" targetCycleFct="main" targetInitFct="main_reset" targetInitializationFct="main_init">
+      <Input inCtx="true" scadeName="pressure" scadeType="int8" targetName="pressure" targetType="kcg_int8"/>
+      <Output inCtx="true" scadeName="alarm" scadeType="bool" targetName="alarm" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L1" scadeType="int8" targetName="_L1" targetType="kcg_int8"/>
+      <Local inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L4" scadeType="int8" targetName="_L4" targetType="kcg_int8"/>
+      <Local inCtx="true" scadeName="_L5" scadeType="int8" targetName="_L5" targetType="kcg_int8"/>
+      <NodeInstance instName="1" refName="ThresholdDetector" scadeName="ThresholdDetector">
+        <OutCtxVar targetName="Context_ThresholdDetector_1"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="timedDevice" scadeName="timedDevice">
+        <OutCtxVar targetName="Context_timedDevice_1"/>
+      </NodeInstance>
+      <OutCtxType targetName="outC_main"/>
+      <InCtxType targetName="inC_main"/>
+    </RootNode>
+    <NoExpNode headerFile="ThresholdDetector.h" scadeName="ThresholdDetector" targetCycleFct="ThresholdDetector" targetInitFct="ThresholdDetector_reset" targetInitializationFct="ThresholdDetector_init">
+      <Input scadeName="measure" scadeType="int8" targetName="measure" targetType="kcg_int8"/>
+      <Input scadeName="Threshold" scadeType="int8" targetName="Threshold" targetType="kcg_int8"/>
+      <Output inCtx="true" scadeName="over" scadeType="bool" targetName="over" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L1" scadeType="int8" targetName="_L1" targetType="kcg_int8"/>
+      <Local inCtx="true" scadeName="_L2" scadeType="int8" targetName="_L2" targetType="kcg_int8"/>
+      <Local inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_ThresholdDetector"/>
+    </NoExpNode>
+    <NoExpNode headerFile="timedDevice.h" scadeName="timedDevice" targetCycleFct="timedDevice" targetInitFct="timedDevice_reset" targetInitializationFct="timedDevice_init">
+      <Input scadeName="order" scadeType="bool" targetName="order" targetType="kcg_bool"/>
+      <Input scadeName="duration" scadeType="int8" targetName="duration" targetType="kcg_int8"/>
+      <Output inCtx="true" scadeName="alarm" scadeType="bool" targetName="alarm" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="SSM_ST_SM1" targetTransitionsType="SSM_TR_SM1">
+        <State scadeName="off" targetName="SSM_st_off_SM1">
+          <Local clockVal="SSM_st_off_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_off_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="on" targetName="SSM_TR_off_on_1_off_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="on" targetName="SSM_st_on_SM1">
+          <Local clockVal="SSM_st_on_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_on_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="1">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_1_int8" targetType="kcg_int8"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="off" targetName="SSM_TR_on_off_1_on_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_1_int8" targetType="kcg_int8"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_timedDevice"/>
+    </NoExpNode>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

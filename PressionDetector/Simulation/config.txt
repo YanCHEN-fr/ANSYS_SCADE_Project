@@ -1,0 +1,3 @@
+-target_dir "C:/Users/Administrator/Desktop/ROB301/PressionDetector/Simulation" -target C -name_length 200 -significance_length 31 -user_config "./user_macros.h" -probes -debug 
+-root main
+"C:/Users/Administrator/Desktop/ROB301/PressionDetector/Simulation/scade_model_without_unused.scade"

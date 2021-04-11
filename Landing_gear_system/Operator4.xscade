@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="DoorsMotionMonitoring">
+			<inputs>
+				<Variable name="door_closed">
+					<type>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<ConstValue value="3"/>
+							</size>
+						</Table>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5115/26F7/3F0/604fcd9b5338"/>
+					</pragmas>
+				</Variable>
+				<Variable name="door_open">
+					<type>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<ConstValue value="3"/>
+							</size>
+						</Table>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/511e/26F7/3F0/604fcdabb8f"/>
+					</pragmas>
+				</Variable>
+				<Variable name="anomaly_time">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5127/26F7/3F0/604fcdc677"/>
+					</pragmas>
+				</Variable>
+				<Variable name="close_EV">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5128/26F7/3F0/604fce1d261e"/>
+					</pragmas>
+				</Variable>
+				<Variable name="open_EV">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5131/26F7/3F0/604fce2e28b"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="doors_anomaly">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5147/26F7/3F0/604fce8d74eb"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="normal">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="openEV"/>
+									</target>
+									<condition>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="open_EV"/>
+											</path>
+										</IdExpression>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/533f/26F7/3F0/604fe3f47a7d"/>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="closeEV"/>
+									</target>
+									<condition>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="close_EV"/>
+											</path>
+										</IdExpression>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/536e/26F7/3F0/604fe4283b4f"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/515e/26F7/3F0/604fcee3a5a"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- doors_anomaly = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="doors_anomaly"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5152/26F7/3F0/604fcede248"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/515d/26F7/3F0/604fcee37b9f"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/513f/26F7/3F0/604fce73ac"/>
+							</pragmas>
+						</State>
+						<State name="openEV">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="error"/>
+									</target>
+									<condition>
+										<!-- (door_closed[0] or door_closed[1] or door_closed[2]) and (anomaly_time times true... -->
+										<NAryOp name="43" operator="and">
+											<operands>
+												<!-- (door_closed[0] or door_closed[1] or door_closed[2]) -->
+												<NAryOp name="23" operator="or">
+													<operands>
+														<!-- door_closed[0] -->
+														<PrjOp name="138">
+															<flow>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="door_closed"/>
+																	</path>
+																</IdExpression>
+															</flow>
+															<with>
+																<ConstValue value="0"/>
+															</with>
+														</PrjOp>
+														<!-- door_closed[1] -->
+														<PrjOp name="139">
+															<flow>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="door_closed"/>
+																	</path>
+																</IdExpression>
+															</flow>
+															<with>
+																<ConstValue value="1"/>
+															</with>
+														</PrjOp>
+														<!-- door_closed[2] -->
+														<PrjOp name="140">
+															<flow>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="door_closed"/>
+																	</path>
+																</IdExpression>
+															</flow>
+															<with>
+																<ConstValue value="2"/>
+															</with>
+														</PrjOp>
+													</operands>
+												</NAryOp>
+												<!-- (anomaly_time times true) -->
+												<BinaryOp name="36" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="anomaly_time"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<effect>
+										<Action>
+											<pragmas>
+												<ed:Action oid="!ed/5386/26F7/3F0/604fe46445ea"/>
+											</pragmas>
+										</Action>
+									</effect>
+									<pragmas>
+										<ed:Transition oid="!ed/518b/26F7/3F0/604fcf145c94" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+											<comment>if the control software does not see the value door closed[x] = false for all x  7 seconds after stimulation of the opening electrovalve, then the doors are considered as blocked and an anomaly is detected</comment>
+										</ed:Transition>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="error"/>
+									</target>
+									<condition>
+										<!-- (door_open[0] = false or door_open[1] = false or door_open[2] = false) and (anoma... -->
+										<NAryOp name="44" operator="and">
+											<operands>
+												<!-- (door_open[0] = false or door_open[1] = false or door_open[2] = false) -->
+												<NAryOp name="24" operator="or">
+													<operands>
+														<!-- door_open[0] = false -->
+														<BinaryOp name="149" operator="=">
+															<operands>
+																<!-- door_open[0] -->
+																<PrjOp name="141">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="door_open"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="0"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+														<!-- door_open[1] = false -->
+														<BinaryOp name="150" operator="=">
+															<operands>
+																<!-- door_open[1] -->
+																<PrjOp name="142">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="door_open"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="1"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+														<!-- door_open[2] = false -->
+														<BinaryOp name="151" operator="=">
+															<operands>
+																<!-- door_open[2] -->
+																<PrjOp name="143">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="door_open"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="2"/>
+																	</with>
+																</PrjOp>
+																<ConstValue value="false"/>
+															</operands>
+														</BinaryOp>
+													</operands>
+												</NAryOp>
+												<!-- (anomaly_time times true) -->
+												<BinaryOp name="37" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="anomaly_time"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<effect>
+										<Action>
+											<pragmas>
+												<ed:Action oid="!ed/53a7/26F7/3F0/604fe49f3934"/>
+											</pragmas>
+										</Action>
+									</effect>
+									<pragmas>
+										<ed:Transition commentsToC="true" oid="!ed/51b7/26F7/3F0/604fd1b43a45" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+											<comment>if the control software does not see the value door open[x] = true for all x  7 seconds after stimulation of the opening electrovalve, then the doors are considered as blocked and an anomaly is detected.</comment>
+										</ed:Transition>
+										<kcg:Pragma>
+											doc if the control software does not see the value door open[x] = true for all x  7 seconds after stimulation of the opening electrovalve, then the doors are considered as blocked and an anomaly is detected.
+										</kcg:Pragma>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5424/26F7/3F0/604fe5615234"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- doors_anomaly = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="doors_anomaly"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/541d/26F7/3F0/604fe55b3fb2"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5423/26F7/3F0/604fe561425d"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/5314/26F7/3F0/604fe35c74a8"/>
+							</pragmas>
+						</State>
+						<State name="closeEV">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="error"/>
+									</target>
+									<condition>
+										<!-- (door_open[0] or door_open[1] or door_open[2]) and (anomaly_time times true) -->
+										<NAryOp name="48" operator="and">
+											<operands>
+												<!-- (door_open[0] or door_open[1] or door_open[2]) -->
+												<NAryOp name="26" operator="or">
+													<operands>
+														<!-- door_open[0] -->
+														<PrjOp name="150">
+															<flow>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="door_open"/>
+																	</path>
+																</IdExpression>
+															</flow>
+															<with>
+																<ConstValue value="0"/>
+															</with>
+														</PrjOp>
+														<!-- door_open[1] -->
+														<PrjOp name="151">
+															<flow>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="door_open"/>
+																	</path>
+																</IdExpression>
+															</flow>
+															<with>
+																<ConstValue value="1"/>
+															</with>
+														</PrjOp>
+														<!-- door_open[2] -->
+														<PrjOp name="152">
+															<flow>
+																<IdExpression>
+																	<path>
+																		<ConstVarRef name="door_open"/>
+																	</path>
+																</IdExpression>
+															</flow>
+															<with>
+																<ConstValue value="2"/>
+															</with>
+														</PrjOp>
+													</operands>
+												</NAryOp>
+												<!-- (anomaly_time times true) -->
+												<BinaryOp name="40" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="anomaly_time"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<effect>
+										<Action>
+											<pragmas>
+												<ed:Action oid="!ed/53c9/26F7/3F0/604fe4bd5b46"/>
+											</pragmas>
+										</Action>
+									</effect>
+									<pragmas>
+										<ed:Transition oid="!ed/51c9/26F7/3F0/604fd2316b66" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+											<comment>if the control software does not see the value door open[x] = false for all</comment>
+											<comment></comment>
+											<comment>x 7 seconds after stimulation of the closure electrovalve, then the doors are considered as blocked and an anomaly is detected.</comment>
+										</ed:Transition>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="error"/>
+									</target>
+									<condition>
+										<!-- (door_closed[0] and door_closed[1] and door_closed[2]) = false and (anomaly_time ... -->
+										<NAryOp name="46" operator="and">
+											<operands>
+												<!-- (door_closed[0] and door_closed[1] and door_closed[2]) = false -->
+												<BinaryOp name="155" operator="=">
+													<operands>
+														<!-- (door_closed[0] and door_closed[1] and door_closed[2]) -->
+														<NAryOp name="47" operator="and">
+															<operands>
+																<!-- door_closed[0] -->
+																<PrjOp name="147">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="door_closed"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="0"/>
+																	</with>
+																</PrjOp>
+																<!-- door_closed[1] -->
+																<PrjOp name="148">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="door_closed"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="1"/>
+																	</with>
+																</PrjOp>
+																<!-- door_closed[2] -->
+																<PrjOp name="149">
+																	<flow>
+																		<IdExpression>
+																			<path>
+																				<ConstVarRef name="door_closed"/>
+																			</path>
+																		</IdExpression>
+																	</flow>
+																	<with>
+																		<ConstValue value="2"/>
+																	</with>
+																</PrjOp>
+															</operands>
+														</NAryOp>
+														<ConstValue value="false"/>
+													</operands>
+												</BinaryOp>
+												<!-- (anomaly_time times true) -->
+												<BinaryOp name="39" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="anomaly_time"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<effect>
+										<Action>
+											<pragmas>
+												<ed:Action oid="!ed/53e7/26F7/3F0/604fe4e13fac"/>
+											</pragmas>
+										</Action>
+									</effect>
+									<pragmas>
+										<ed:Transition oid="!ed/51e3/26F7/3F0/604fd262ff8" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+											<comment>if the control software does not see the value door closed[x] = true for all</comment>
+											<comment></comment>
+											<comment>x  7 seconds after stimulation of the closure electrovalve, then the doors are considered as blocked and an anomaly is detected.</comment>
+										</ed:Transition>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5443/26F7/3F0/604fe5715079"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- doors_anomaly = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="doors_anomaly"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5438/26F7/3F0/604fe56c5cc2"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5442/26F7/3F0/604fe5713947"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/531e/26F7/3F0/604fe36b7cce"/>
+							</pragmas>
+						</State>
+						<State name="error">
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/5485/26F7/3F0/604fe5be68f6"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- doors_anomaly = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="doors_anomaly"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/547b/26F7/3F0/604fe5b77fdf"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5484/26F7/3F0/604fe5be72b8"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/5461/26F7/3F0/604fe5941c51"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/513a/26F7/3F0/604fce685448"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator oid="!ed/4f0e/26F7/3F0/604fc08f1afc" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+					<comment>Node for monitoring the door control.</comment>
+					<diagrams>
+						<NetDiagram name="DoorsMotionMonitoring_1" landscape="true" format="A4 (210 297)" oid="!ed/4f0f/26F7/3F0/604fc08f32e">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/513a/26F7/3F0/604fce685448">
+									<position>
+										<Point x="635" y="3731"/>
+									</position>
+									<size>
+										<Size width="30004" height="13176"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/513f/26F7/3F0/604fce73ac">
+									<position>
+										<Point x="820" y="4101"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/5152/26F7/3F0/604fcede248">
+									<position>
+										<Point x="2937" y="5874"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/515d/26F7/3F0/604fcee37b9f">
+									<position>
+										<Point x="1693" y="6006"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/515d/26F7/3F0/604fcee37b9f" dstEquation="!ed/5152/26F7/3F0/604fcede248">
+									<positions>
+										<Point x="1905" y="6165"/>
+										<Point x="2434" y="6165"/>
+										<Point x="2434" y="6165"/>
+										<Point x="2990" y="6165"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/518b/26F7/3F0/604fcf145c94">
+									<positions>
+										<Point x="17806" y="5741"/>
+										<Point x="19315" y="5768"/>
+										<Point x="24289" y="6853"/>
+										<Point x="25797" y="6879"/>
+									</positions>
+									<labelSize>
+										<Size width="11589" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="16907" y="5345"/>
+									</labelPos>
+									<slashPos>
+										<Point x="27702" y="5345"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/51b7/26F7/3F0/604fd1b43a45">
+									<textAreas>
+										<TextArea text="(door_open[0]=false or door_open[1]=false or door_open[2]=false) and (anomaly_time times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="17806" y="6694"/>
+										<Point x="21431" y="6694"/>
+										<Point x="22119" y="7435"/>
+										<Point x="25797" y="7488"/>
+									</positions>
+									<labelSize>
+										<Size width="13335" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="13336" y="7885"/>
+									</labelPos>
+									<slashPos>
+										<Point x="25877" y="7885"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/51c9/26F7/3F0/604fd2316b66">
+									<positions>
+										<Point x="17701" y="11456"/>
+										<Point x="21325" y="11456"/>
+										<Point x="22119" y="8731"/>
+										<Point x="25797" y="8758"/>
+									</positions>
+									<labelSize>
+										<Size width="10795" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="14790" y="9181"/>
+									</labelPos>
+									<slashPos>
+										<Point x="24791" y="9181"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/51e3/26F7/3F0/604fd262ff8">
+									<textAreas>
+										<TextArea text="((door_closed[0] and door_closed[1] and door_closed[2])=false ) and (anomaly_time times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="17701" y="12594"/>
+										<Point x="21325" y="12621"/>
+										<Point x="22119" y="9260"/>
+										<Point x="25797" y="9313"/>
+									</positions>
+									<labelSize>
+										<Size width="13150" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="18283" y="12621"/>
+									</labelPos>
+									<slashPos>
+										<Point x="30639" y="12621"/>
+									</slashPos>
+								</TransitionGE>
+								<StateGE presentable="!ed/5314/26F7/3F0/604fe35c74a8">
+									<position>
+										<Point x="13097" y="4128"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<StateGE presentable="!ed/531e/26F7/3F0/604fe36b7cce">
+									<position>
+										<Point x="12991" y="11060"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<TransitionGE presentable="!ed/533f/26F7/3F0/604fe3f47a7d">
+									<positions>
+										<Point x="5530" y="6562"/>
+										<Point x="6773" y="7329"/>
+										<Point x="11827" y="5106"/>
+										<Point x="13097" y="5874"/>
+									</positions>
+									<labelSize>
+										<Size width="1931" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="8652" y="5847"/>
+									</labelPos>
+									<slashPos>
+										<Point x="9790" y="5847"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/536e/26F7/3F0/604fe4283b4f">
+									<positions>
+										<Point x="4101" y="7699"/>
+										<Point x="5847" y="10001"/>
+										<Point x="11245" y="11483"/>
+										<Point x="12991" y="13785"/>
+									</positions>
+									<labelSize>
+										<Size width="2011" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="4974" y="12568"/>
+									</labelPos>
+									<slashPos>
+										<Point x="6191" y="12568"/>
+									</slashPos>
+								</TransitionGE>
+								<EquationGE presentable="!ed/541d/26F7/3F0/604fe55b3fb2">
+									<position>
+										<Point x="16484" y="5980"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5423/26F7/3F0/604fe561425d">
+									<position>
+										<Point x="15108" y="6138"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5423/26F7/3F0/604fe561425d" dstEquation="!ed/541d/26F7/3F0/604fe55b3fb2">
+									<positions>
+										<Point x="15319" y="6297"/>
+										<Point x="15928" y="6297"/>
+										<Point x="15928" y="6244"/>
+										<Point x="16536" y="6244"/>
+									</positions>
+								</Edge>
+								<EquationGE presentable="!ed/5438/26F7/3F0/604fe56c5cc2">
+									<position>
+										<Point x="16484" y="12621"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5442/26F7/3F0/604fe5713947">
+									<position>
+										<Point x="15161" y="12779"/>
+									</position>
+									<size>
+										<Size width="212" height="317"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5442/26F7/3F0/604fe5713947" dstEquation="!ed/5438/26F7/3F0/604fe56c5cc2">
+									<positions>
+										<Point x="15372" y="12938"/>
+										<Point x="15954" y="12938"/>
+										<Point x="15954" y="12885"/>
+										<Point x="16536" y="12885"/>
+									</positions>
+								</Edge>
+								<StateGE presentable="!ed/5461/26F7/3F0/604fe5941c51">
+									<position>
+										<Point x="25797" y="6085"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/547b/26F7/3F0/604fe5b77fdf">
+									<position>
+										<Point x="29025" y="8096"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/5484/26F7/3F0/604fe5be72b8">
+									<position>
+										<Point x="27040" y="8202"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/5484/26F7/3F0/604fe5be72b8" dstEquation="!ed/547b/26F7/3F0/604fe5b77fdf">
+									<positions>
+										<Point x="27252" y="8361"/>
+										<Point x="28152" y="8361"/>
+										<Point x="28152" y="8361"/>
+										<Point x="29078" y="8361"/>
+									</positions>
+								</Edge>
+							</presentationElements>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>

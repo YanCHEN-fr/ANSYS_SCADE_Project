@@ -1,0 +1,63 @@
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version Student 2021 R1 (build 20201118T195152) **************
+** Generation date: 2021-03-01T11:44:19
+** Command: scade -code "C:\Users\Administrator\Desktop\ROB301\PressionDetector\PressionDetector.etp" -root main -conf Simulation
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\main.c, line 0, character 0
+ ~main.c
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\timedDevice.c, line 0, character 0
+ ~timedDevice.c
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\ThresholdDetector.c, line 0, character 0
+ ~ThresholdDetector.c
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\main.h, line 0, character 0
+ ~main.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\timedDevice.h, line 0, character 0
+ ~timedDevice.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\ThresholdDetector.h, line 0, character 0
+ ~ThresholdDetector.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+*** Generated Files Information (GENFIL): Type Utils Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\PressionDetector_type.h, line 0, character 0
+ ~PressionDetector_type.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\PressionDetector_type.c, line 0, character 0
+ ~PressionDetector_type.c
+*** Generated Files Information (GENFIL): Mapping Utils Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\PressionDetector_mapping.h, line 0, character 0
+ ~PressionDetector_mapping.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\PressionDetector_mapping.c, line 0, character 0
+ ~PressionDetector_mapping.c
+*** Generated Files Information (GENFIL): Simulator Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\PressionDetector_interface.h, line 0, character 0
+ ~PressionDetector_interface.h
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\PressionDetector_interface.c, line 0, character 0
+ ~PressionDetector_interface.c
+  at file C:\Users\Administrator\Desktop\ROB301\PressionDetector\Simulation\PressionDetector_dll.c, line 0, character 0
+ ~PressionDetector_dll.c
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version Student 2021 R1 (build 20201118T195152) **************
+** Generation date: 2021-03-01T11:44:19
+** sc2c.log
+*************************************************************$

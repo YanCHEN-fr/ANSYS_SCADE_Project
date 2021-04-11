@@ -1,0 +1,43 @@
+[scade_version: Student 2021 R1]
+[scade_project: C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Moving_average.etp]
+[Code Generator]
+3ae4f65c4aac04c6010e8d5d50bda932 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/scade_model_without_unused.scade
+7098a8497e2fe834ef897e5d5071c133 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/cmd_cg.log
+738d7e4fe379130f4558797741cfe021 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/config.txt
+35025e7bc25b1b312299fcd160b1acf8 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_consts.c
+4b0e9e8b11269733b79b8a54ad578dd1 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_consts.h
+30fd4356a293b61260df5e85e95443ed C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_files.txt
+c570e85441febaa6f6d5e23e14e58b55 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_imported_types.h
+f903a545cd5817dd318412c35f2664f7 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_metrics.txt
+0111ae9bc13d7b1b5a6217df2b7bbef6 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_sensors.h
+6ab066a3356b5030e346123aac2bbe3b C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_types.c
+7e26272dfffe82dde5189e9cf9674b28 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/kcg_types.h
+7f50d620b115e75a6cb9c087c879aaaa C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/mapping.xml
+d134025746da54d1e2a8becc2c196298 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/moving_average.c
+901cdc8c7ffb7216d2446636f3867831 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/moving_average.h
+e23907115fc212ba1319b5fd9b23f340 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/user_macros.h
+[Mapping Utils]
+7f50d620b115e75a6cb9c087c879aaaa C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/mapping.xml
+3f3c42dc7a2dc6c9aef3017823a00e60 C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuConfig.c
+5b9e0d7ea9b52c17fdae3092ded3ba5e C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuLib.c
+134415479f730b247b59be1fa4b82ed3 C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuTypes.c
+f8e54064707a32ec62840ae6f743d17e C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuVTable.c
+7e1e422818feca40030928cc8ad33676 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Moving_average.etp
+3641b6d1aa3fbeaae2e74c9f3d0e22f7 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/Moving_average_mapping.c
+7b0ed790a04956c3619c024f9efb708c C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/Moving_average_mapping.h
+[Simulator Wrapper]
+7f50d620b115e75a6cb9c087c879aaaa C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/mapping.xml
+7e1e422818feca40030928cc8ad33676 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Moving_average.etp
+1ed6d6c8b43aabdba61ab761228a25dd C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/Moving_average_dll.c
+377fda0e44aba0a16c85973196458d7b C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/Moving_average_interface.c
+07c233e2bf74d235b7441fb6d9cc9c84 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/Moving_average_interface.h
+[Type Utils]
+7f50d620b115e75a6cb9c087c879aaaa C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/mapping.xml
+3f3c42dc7a2dc6c9aef3017823a00e60 C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuConfig.c
+5b9e0d7ea9b52c17fdae3092ded3ba5e C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuLib.c
+9debb3e06a0a599175a9f8724fe07b6d C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuPredefConv.c
+134415479f730b247b59be1fa4b82ed3 C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuTypes.c
+f8e54064707a32ec62840ae6f743d17e C:/Program Files/ANSYS Inc/v211/SCADE Student/SCADE/lib/C/SmuVTable.c
+7e1e422818feca40030928cc8ad33676 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Moving_average.etp
+9e547d4e6d935de98b67d37fa720ace8 C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/Moving_average_type.c
+268c6ff7568248820556959bfac1be8d C:/Users/Administrator/Desktop/ROB301/TP1/Moving_average/Simulation/Moving_average_type.h

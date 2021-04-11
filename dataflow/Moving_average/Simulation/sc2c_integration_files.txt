@@ -1,0 +1,42 @@
+*****************************
+*** Generated KCG H/Ads files ***
+*****************************
+moving_average.h
+kcg_types.h
+kcg_consts.h
+kcg_sensors.h
+
+*****************************
+*** Generated KCG C/Adb files ***
+*****************************
+moving_average.c
+kcg_types.c
+kcg_consts.c
+
+*****************************
+*** Code Integration C Files ***
+*****************************
+Moving_average_mapping.c
+Moving_average_type.c
+$(SCADE)\lib\C\SmuPredefConv.c
+$(SCADE)\lib\C\SmuConfig.c
+$(SCADE)\lib\C\SmuTypes.c
+$(SCADE)\lib\C\SmuLib.c
+$(SCADE)\lib\C\SmuVTable.c
+
+*****************************
+*** Generated SC2C Files ***
+*****************************
+user_macros.h
+kcg_imported_types.h
+
+*****************************
+*** Include Directories ***
+*****************************
+.
+$(SCADE)
+$(SCADE)\include
+$(SCADE)\include\C
+$(SCADE)\include\Ada
+$(SCADE)\lib\Ada
+

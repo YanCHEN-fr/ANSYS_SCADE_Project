@@ -1,0 +1,12 @@
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\ADMINI~1\AppData\Local\Temp\ScadeChecker\2176\checker_file.scade, line 9, character 0
+  at path moving_average/Input1/
+ The input variable Input1 is never used
+*** Post-namespace Error (ERR_516): Undefined variable
+  at file C:\Users\ADMINI~1\AppData\Local\Temp\ScadeChecker\2176\checker_file.scade, line 14, character 0
+  at path moving_average/Output1/
+ The output variable Output1 has no definition
+*** Post-namespace Error (ERR_521): Unused size
+  at file C:\Users\ADMINI~1\AppData\Local\Temp\ScadeChecker\2176\checker_file.scade, line 5, character 17
+  at path moving_average/constant/
+ The size parameter constant is never used

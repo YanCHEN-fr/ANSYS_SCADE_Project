@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$ ANSYS SCADE Suite (R) Code Generator version Student 2021 R1 (build 20201118) 
+** Command: scadecg.exe -config C:/Users/Administrator/Desktop/ROB301/PressionDetector/Simulation/config.txt
+** Generation date: 2021-03-01T11:39:25
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file"
+        value="C:/Users/Administrator/Desktop/ROB301/PressionDetector/Simulation/scade_model_without_unused.scade"/>
+    <option name="probes" value="#on#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="debug" value="#on#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="C:/Users/Administrator/Desktop/ROB301/PressionDetector/Simulation"/>
+    <option name="target" value="C"/>
+    <option name="root" value="main"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <operator id="14" name="main" imported="false" root="true" expanded="false">
+      <input id="15" name="pressure" clock="false" type="3"/>
+      <output id="16" name="alarm" clock="false" type="1"/>
+      <local id="17" name="_L1" clock="false" type="3"/>
+      <local id="18" name="_L2" clock="false" type="1"/>
+      <local id="19" name="_L3" clock="false" type="1"/>
+      <local id="20" name="_L4" clock="false" type="3"/>
+      <local id="21" name="_L5" clock="false" type="3"/>
+      <instance id="22" name="1" op="24" expanded="false"/>
+      <instance id="23" name="1" op="31" expanded="false"/>
+    </operator>
+    <operator id="24" name="ThresholdDetector" imported="false" root="false" expanded="false">
+      <input id="25" name="measure" clock="false" type="3"/>
+      <input id="26" name="Threshold" clock="false" type="3"/>
+      <output id="27" name="over" clock="false" type="1"/>
+      <local id="28" name="_L1" clock="false" type="3"/>
+      <local id="29" name="_L2" clock="false" type="3"/>
+      <local id="30" name="_L3" clock="false" type="1"/>
+    </operator>
+    <operator id="31" name="timedDevice" imported="false" root="false" expanded="false">
+      <input id="32" name="order" clock="false" type="1"/>
+      <input id="33" name="duration" clock="false" type="3"/>
+      <output id="34" name="alarm" clock="false" type="1"/>
+      <automaton id="35" name="SM1">
+        <state id="36" name="off" initial="true" final="false" default="false">
+          <local id="37" name="_L1" clock="false" type="1"/>
+          <fork id="38" name="1" kind="strong">
+            <transition id="39" dest="40"/>
+          </fork>
+        </state>
+        <state id="40" name="on" initial="false" final="false" default="false">
+          <local id="41" name="_L1" clock="false" type="1"/>
+          <fork id="42" name="1" kind="strong">
+            <times id="43" name="1"/>
+            <transition id="44" dest="36"/>
+          </fork>
+        </state>
+      </automaton>
+    </operator>
+  </model>
+  <generated>
+    <c>
+      <file id="45" name="main.h">
+        <function id="46" name="main_init">
+          <parameter id="47" name="outC" type="53" pointer="true"/>
+        </function>
+        <function id="48" name="main_reset">
+          <parameter id="49" name="outC" type="53" pointer="true"/>
+        </function>
+        <function id="50" name="main">
+          <parameter id="51" name="inC" type="62" pointer="true"/>
+          <parameter id="52" name="outC" type="53" pointer="true"/>
+        </function>
+        <struct id="53" name="outC_main">
+          <field id="54" name="alarm" type="146" pointer="false"/>
+          <field id="55" name="Context_timedDevice_1" type="73" pointer="false"/>
+          <field id="56" name="Context_ThresholdDetector_1" type="99" pointer="false"/>
+          <field id="57" name="_L1" type="135" pointer="false"/>
+          <field id="58" name="_L2" type="146" pointer="false"/>
+          <field id="59" name="_L3" type="146" pointer="false"/>
+          <field id="60" name="_L4" type="135" pointer="false"/>
+          <field id="61" name="_L5" type="135" pointer="false"/>
+        </struct>
+        <struct id="62" name="inC_main">
+          <field id="63" name="pressure" type="135" pointer="false"/>
+        </struct>
+      </file>
+      <file id="64" name="timedDevice.h">
+        <function id="65" name="timedDevice_init">
+          <parameter id="66" name="outC" type="73" pointer="true"/>
+        </function>
+        <function id="67" name="timedDevice_reset">
+          <parameter id="68" name="outC" type="73" pointer="true"/>
+        </function>
+        <function id="69" name="timedDevice">
+          <parameter id="70" name="order" type="146" pointer="false"/>
+          <parameter id="71" name="duration" type="135" pointer="false"/>
+          <parameter id="72" name="outC" type="73" pointer="true"/>
+        </function>
+        <struct id="73" name="outC_timedDevice">
+          <field id="74" name="alarm" type="146" pointer="false"/>
+          <field id="75" name="init" type="146" pointer="false"/>
+          <field id="76" name="v3_times_1_int8" type="135" pointer="false"/>
+          <field id="77" name="SM1_state_nxt" type="105" pointer="false"/>
+          <field id="78" name="SM1_reset_act" type="146" pointer="false"/>
+          <field id="79" name="SM1_reset_nxt" type="146" pointer="false"/>
+          <field id="80" name="SM1_state_sel" type="105" pointer="false"/>
+          <field id="81" name="SM1_state_act" type="105" pointer="false"/>
+          <field id="82" name="o_times_1_int8" type="146" pointer="false"/>
+          <field id="83" name="c_times_1_int8" type="146" pointer="false"/>
+          <field id="84" name="n_times_1_int8" type="135" pointer="false"/>
+          <field id="85" name="v4_times_1_int8" type="135" pointer="false"/>
+          <field id="86" name="_L1_off_SM1" type="146" pointer="false"/>
+          <field id="87" name="_L1_on_SM1" type="146" pointer="false"/>
+          <field id="88" name="SM1_fired_strong" type="108" pointer="false"/>
+          <field id="89" name="SM1_fired" type="108" pointer="false"/>
+        </struct>
+      </file>
+      <file id="90" name="ThresholdDetector.h">
+        <function id="91" name="ThresholdDetector_init">
+          <parameter id="92" name="outC" type="99" pointer="true"/>
+        </function>
+        <function id="93" name="ThresholdDetector_reset">
+          <parameter id="94" name="outC" type="99" pointer="true"/>
+        </function>
+        <function id="95" name="ThresholdDetector">
+          <parameter id="96" name="measure" type="135" pointer="false"/>
+          <parameter id="97" name="Threshold" type="135" pointer="false"/>
+          <parameter id="98" name="outC" type="99" pointer="true"/>
+        </function>
+        <struct id="99" name="outC_ThresholdDetector">
+          <field id="100" name="over" type="146" pointer="false"/>
+          <field id="101" name="_L1" type="135" pointer="false"/>
+          <field id="102" name="_L2" type="135" pointer="false"/>
+          <field id="103" name="_L3" type="146" pointer="false"/>
+        </struct>
+      </file>
+      <file id="104" name="kcg_types.h">
+        <enum id="105" name="SSM_ST_SM1" tagName="kcg_tag_SSM_ST_SM1">
+          <value id="106" name="SSM_st_off_SM1"/>
+          <value id="107" name="SSM_st_on_SM1"/>
+        </enum>
+        <enum id="108" name="SSM_TR_SM1" tagName="kcg_tag_SSM_TR_SM1">
+          <value id="109" name="SSM_TR_no_trans_SM1"/>
+          <value id="110" name="SSM_TR_off_on_1_off_SM1"/>
+          <value id="111" name="SSM_TR_on_off_1_on_SM1"/>
+        </enum>
+        <macro id="112" name="kcg_assign_array"/>
+        <macro id="113" name="kcg_assign_struct"/>
+        <macro id="114" name="kcg_lnot_uint8"/>
+        <macro id="115" name="kcg_lnot_uint16"/>
+        <macro id="116" name="kcg_lnot_uint32"/>
+        <macro id="117" name="kcg_lnot_uint64"/>
+        <macro id="118" name="kcg_lsl_uint8"/>
+        <macro id="119" name="kcg_lsl_uint16"/>
+        <macro id="120" name="kcg_lsl_uint32"/>
+        <macro id="121" name="kcg_lsl_uint64"/>
+        <macro id="122" name="kcg_true"/>
+        <macro id="123" name="kcg_false"/>
+        <macro id="124" name="kcg_lit_int8"/>
+        <macro id="125" name="kcg_lit_int16"/>
+        <macro id="126" name="kcg_lit_int32"/>
+        <macro id="127" name="kcg_lit_int64"/>
+        <macro id="128" name="kcg_lit_uint8"/>
+        <macro id="129" name="kcg_lit_uint16"/>
+        <macro id="130" name="kcg_lit_uint32"/>
+        <macro id="131" name="kcg_lit_uint64"/>
+        <macro id="132" name="kcg_lit_size"/>
+        <macro id="133" name="kcg_lit_float64"/>
+        <macro id="134" name="kcg_lit_float32"/>
+        <predefType id="135" name="kcg_int8"/>
+        <predefType id="136" name="kcg_int16"/>
+        <predefType id="137" name="kcg_int32"/>
+        <predefType id="138" name="kcg_int64"/>
+        <predefType id="139" name="kcg_uint8"/>
+        <predefType id="140" name="kcg_uint16"/>
+        <predefType id="141" name="kcg_uint32"/>
+        <predefType id="142" name="kcg_uint64"/>
+        <predefType id="143" name="kcg_size"/>
+        <predefType id="144" name="kcg_float64"/>
+        <predefType id="145" name="kcg_float32"/>
+        <predefType id="146" name="kcg_bool"/>
+        <predefType id="147" name="kcg_char"/>
+        <macro id="148" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="149" name="kcg_consts.h"/>
+      <file id="150" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="144" dstId="133" role="wrapped-lit"/>
+    <map srcId="145" dstId="134" role="wrapped-lit"/>
+    <map srcId="143" dstId="132" role="wrapped-lit"/>
+    <map srcId="142" dstId="131" role="wrapped-lit"/>
+    <map srcId="142" dstId="117" role="wrapped-lnot"/>
+    <map srcId="142" dstId="121" role="wrapped-lsl"/>
+    <map srcId="141" dstId="130" role="wrapped-lit"/>
+    <map srcId="141" dstId="116" role="wrapped-lnot"/>
+    <map srcId="141" dstId="120" role="wrapped-lsl"/>
+    <map srcId="140" dstId="129" role="wrapped-lit"/>
+    <map srcId="140" dstId="115" role="wrapped-lnot"/>
+    <map srcId="140" dstId="119" role="wrapped-lsl"/>
+    <map srcId="139" dstId="128" role="wrapped-lit"/>
+    <map srcId="139" dstId="114" role="wrapped-lnot"/>
+    <map srcId="139" dstId="118" role="wrapped-lsl"/>
+    <map srcId="138" dstId="127" role="wrapped-lit"/>
+    <map srcId="137" dstId="126" role="wrapped-lit"/>
+    <map srcId="136" dstId="125" role="wrapped-lit"/>
+    <map srcId="135" dstId="124" role="wrapped-lit"/>
+    <map srcId="87" dstId="81" role="clock"/>
+    <map srcId="87" dstId="107" role="clock-value"/>
+    <map srcId="86" dstId="81" role="clock"/>
+    <map srcId="86" dstId="106" role="clock-value"/>
+    <map srcId="85" dstId="80" role="clock"/>
+    <map srcId="85" dstId="107" role="clock-value"/>
+    <map srcId="84" dstId="80" role="clock"/>
+    <map srcId="84" dstId="107" role="clock-value"/>
+    <map srcId="83" dstId="80" role="clock"/>
+    <map srcId="83" dstId="107" role="clock-value"/>
+    <map srcId="82" dstId="80" role="clock"/>
+    <map srcId="82" dstId="107" role="clock-value"/>
+    <map srcId="76" dstId="80" role="clock"/>
+    <map srcId="76" dstId="107" role="clock-value"/>
+  </generated>
+  <map modelId="39" generatedId="110"/>
+  <map modelId="35" generatedId="109" role="autom-no-trans-enum"/>
+  <map modelId="44" generatedId="111"/>
+  <map modelId="36" generatedId="106"/>
+  <map modelId="40" generatedId="107"/>
+  <map modelId="14" generatedId="47" role="context-parameter"/>
+  <map modelId="14" generatedId="46" role="init-method"/>
+  <map modelId="14" generatedId="49" role="context-parameter"/>
+  <map modelId="14" generatedId="48" role="reset-method"/>
+  <map modelId="14" generatedId="51" role="input-struct-parameter"/>
+  <map modelId="15" generatedId="63"/>
+  <map modelId="14" generatedId="62" role="input-struct-type"/>
+  <map modelId="14" generatedId="52" role="context-parameter"/>
+  <map modelId="21" generatedId="61"/>
+  <map modelId="20" generatedId="60"/>
+  <map modelId="19" generatedId="59"/>
+  <map modelId="18" generatedId="58"/>
+  <map modelId="17" generatedId="57"/>
+  <map modelId="22" generatedId="56"/>
+  <map modelId="23" generatedId="55"/>
+  <map modelId="16" generatedId="54"/>
+  <map modelId="14" generatedId="53" role="context-type"/>
+  <map modelId="14" generatedId="45" role="interface-file"/>
+  <map modelId="14" generatedId="50" role="cycle-method"/>
+  <map modelId="31" generatedId="66" role="context-parameter"/>
+  <map modelId="31" generatedId="65" role="init-method"/>
+  <map modelId="31" generatedId="68" role="context-parameter"/>
+  <map modelId="31" generatedId="67" role="reset-method"/>
+  <map modelId="33" generatedId="71"/>
+  <map modelId="32" generatedId="70"/>
+  <map modelId="31" generatedId="72" role="context-parameter"/>
+  <map modelId="35" generatedId="89" role="autom-weak-transition"/>
+  <map modelId="35" generatedId="88" role="autom-strong-transition"/>
+  <map modelId="41" generatedId="87"/>
+  <map modelId="37" generatedId="86"/>
+  <map modelId="35" generatedId="81" role="autom-active-state"/>
+  <map modelId="35" generatedId="80" role="autom-selected-state"/>
+  <map modelId="35" generatedId="79" role="autom-next-reset"/>
+  <map modelId="35" generatedId="78" role="autom-active-reset"/>
+  <map modelId="35" generatedId="77" role="autom-next-state"/>
+  <map modelId="43" generatedId="76" role="memory"/>
+  <map modelId="43" generatedId="75" role="init"/>
+  <map modelId="34" generatedId="74"/>
+  <map modelId="31" generatedId="73" role="context-type"/>
+  <map modelId="31" generatedId="64" role="interface-file"/>
+  <map modelId="31" generatedId="69" role="cycle-method"/>
+  <map modelId="24" generatedId="92" role="context-parameter"/>
+  <map modelId="24" generatedId="91" role="init-method"/>
+  <map modelId="24" generatedId="94" role="context-parameter"/>
+  <map modelId="24" generatedId="93" role="reset-method"/>
+  <map modelId="26" generatedId="97"/>
+  <map modelId="25" generatedId="96"/>
+  <map modelId="24" generatedId="98" role="context-parameter"/>
+  <map modelId="30" generatedId="103"/>
+  <map modelId="29" generatedId="102"/>
+  <map modelId="28" generatedId="101"/>
+  <map modelId="27" generatedId="100"/>
+  <map modelId="24" generatedId="99" role="context-type"/>
+  <map modelId="24" generatedId="90" role="interface-file"/>
+  <map modelId="24" generatedId="95" role="cycle-method"/>
+  <map modelId="35" generatedId="108" role="autom-transitions-type"/>
+  <map modelId="35" generatedId="105" role="autom-states-type"/>
+  <map modelId="2" generatedId="147"/>
+  <map modelId="1" generatedId="146"/>
+  <map modelId="12" generatedId="144"/>
+  <map modelId="11" generatedId="145"/>
+  <map modelId="13" generatedId="143"/>
+  <map modelId="10" generatedId="142"/>
+  <map modelId="9" generatedId="141"/>
+  <map modelId="8" generatedId="140"/>
+  <map modelId="7" generatedId="139"/>
+  <map modelId="6" generatedId="138"/>
+  <map modelId="5" generatedId="137"/>
+  <map modelId="4" generatedId="136"/>
+  <map modelId="3" generatedId="135"/>
+</mapping>
+<!--$ ANSYS SCADE Suite (R) Code Generator version Student 2021 R1 (build 20201118) 
+** mapping.xml
+** Generation date: 2021-03-01T11:39:25
+*************************************************************$-->

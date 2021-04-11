@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="G:/CROB301/PROJECT/PROJETV2/PROJET/Simulation/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#on#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="debug" value="#on#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="G:/CROB301/PROJECT/PROJETV2/PROJET/Simulation"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="main_with_time_anomaly"/>
+    <Option name="auth" value="#off#"/>
+    <RootNode headerFile="main_with_time_anomaly.h" scadeName="main_with_time_anomaly" targetCycleFct="main_with_time_anomaly" targetInitFct="main_with_time_anomaly_reset" targetInitializationFct="main_with_time_anomaly_init">
+      <Input inCtx="true" scadeName="handle" scadeType="bool" targetName="handle" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="global_anomaly" scadeType="bool" targetName="global_anomaly" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="global_maneuvering" scadeType="bool" targetName="global_maneuvering" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="global_locked_down" scadeType="bool" targetName="global_locked_down" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L8" scadeType="bool" targetName="_L8" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L7" scadeType="bool" targetName="_L7" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L6" scadeType="bool" targetName="_L6" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L5" scadeType="bool" targetName="_L5" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L4" scadeType="bool" targetName="_L4" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L11" scadeType="bool^(3)" targetName="_L11" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L13" scadeType="bool" targetName="_L13" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L12" scadeType="bool" targetName="_L12" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L21" scadeType="bool" targetName="_L21" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L20" scadeType="bool" targetName="_L20" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L19" scadeType="bool" targetName="_L19" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L18" scadeType="bool" targetName="_L18" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L17" scadeType="bool" targetName="_L17" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L16" scadeType="bool" targetName="_L16" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L15" scadeType="bool" targetName="_L15" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L14" scadeType="bool" targetName="_L14" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L22" scadeType="bool" targetName="_L22" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L23" scadeType="bool" targetName="_L23" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L25" scadeType="bool" targetName="_L25" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L26" scadeType="bool" targetName="_L26" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L28" scadeType="bool^(3)" targetName="_L28" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L27" scadeType="bool^(3)" targetName="_L27" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L33" scadeType="bool" targetName="_L33" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L39" scadeType="int16" targetName="_L39" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L40" scadeType="int16" targetName="_L40" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L41" scadeType="int16" targetName="_L41" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L42" scadeType="int16" targetName="_L42" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L43" scadeType="int16" targetName="_L43" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L47" scadeType="bool" targetName="_L47" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L48" scadeType="bool" targetName="_L48" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L50" scadeType="bool" targetName="_L50" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L49" scadeType="bool" targetName="_L49" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L51" scadeType="bool" targetName="_L51" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L52" scadeType="int16" targetName="_L52" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L53" scadeType="int16" targetName="_L53" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L58" scadeType="bool" targetName="_L58" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L57" scadeType="bool" targetName="_L57" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L59" scadeType="bool" targetName="_L59" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L60" scadeType="bool" targetName="_L60" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L61" scadeType="bool" targetName="_L61" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L62" scadeType="bool" targetName="_L62" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L64" scadeType="bool" targetName="_L64" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L63" scadeType="bool" targetName="_L63" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L65" scadeType="bool" targetName="_L65" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L66" scadeType="bool" targetName="_L66" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L69" scadeType="bool" targetName="_L69" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L70" scadeType="bool" targetName="_L70" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L71" scadeType="bool" targetName="_L71" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L72" scadeType="bool" targetName="_L72" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L75" scadeType="bool" targetName="_L75" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L77" scadeType="bool^(3)" targetName="_L77" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L76" scadeType="bool^(3)" targetName="_L76" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L78" scadeType="int16" targetName="_L78" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L79" scadeType="int16" targetName="_L79" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L80" scadeType="int16" targetName="_L80" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L81" scadeType="bool" targetName="_L81" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L82" scadeType="bool" targetName="_L82" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L83" scadeType="bool^(3)" targetName="_L83" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L84" scadeType="bool^(3)" targetName="_L84" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L86" scadeType="int16" targetName="_L86" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L87" scadeType="int16" targetName="_L87" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L89" scadeType="bool^(3)" targetName="_L89" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L90" scadeType="bool^(3)" targetName="_L90" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L92" scadeType="bool" targetName="_L92" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L91" scadeType="bool" targetName="_L91" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L93" scadeType="bool" targetName="_L93" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L94" scadeType="bool" targetName="_L94" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L95" scadeType="bool" targetName="_L95" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L96" scadeType="bool" targetName="_L96" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L99" scadeType="bool" targetName="_L99" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L100" scadeType="bool" targetName="_L100" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L101" scadeType="bool" targetName="_L101" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L102" scadeType="bool" targetName="_L102" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L103" scadeType="bool^(3)" targetName="_L103" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L104" scadeType="bool^(3)" targetName="_L104" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L105" scadeType="bool^(3)" targetName="_L105" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L106" scadeType="bool^(3)" targetName="_L106" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L107" scadeType="int16" targetName="_L107" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L108" scadeType="int16" targetName="_L108" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L109" scadeType="bool" targetName="_L109" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L110" scadeType="bool" targetName="_L110" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L111" scadeType="bool" targetName="_L111" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L112" scadeType="bool" targetName="_L112" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L115" scadeType="bool" targetName="_L115" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L116" scadeType="bool" targetName="_L116" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L113" scadeType="bool" targetName="_L113" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L114" scadeType="bool" targetName="_L114" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L117" scadeType="bool" targetName="_L117" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L118" scadeType="bool" targetName="_L118" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L121" scadeType="bool" targetName="_L121" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L122" scadeType="bool" targetName="_L122" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L123" scadeType="bool" targetName="_L123" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L124" scadeType="bool" targetName="_L124" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L125" scadeType="bool" targetName="_L125" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L126" scadeType="bool" targetName="_L126" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L127" scadeType="bool" targetName="_L127" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L128" scadeType="bool" targetName="_L128" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L129" scadeType="int16" targetName="_L129" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L130" scadeType="int16" targetName="_L130" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L131" scadeType="bool" targetName="_L131" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L132" scadeType="bool" targetName="_L132" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L133" scadeType="int16" targetName="_L133" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L134" scadeType="bool" targetName="_L134" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L136" scadeType="bool" targetName="_L136" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L137" scadeType="int16" targetName="_L137" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L138" scadeType="int16" targetName="_L138" targetType="kcg_int16"/>
+      <Local inCtx="true" scadeName="_L139" scadeType="bool" targetName="_L139" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L140" scadeType="bool^(3)" targetName="_L140" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L142" scadeType="bool^(3)" targetName="_L142" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L143" scadeType="bool^(3)" targetName="_L143" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L144" scadeType="bool^(3)" targetName="_L144" targetType="array_bool_3"/>
+      <Local inCtx="true" scadeName="_L145" scadeType="bool" targetName="_L145" targetType="kcg_bool"/>
+      <NodeInstance instName="1" refName="ComputingModule" scadeName="ComputingModule">
+        <OutCtxVar targetName="Context_ComputingModule_1"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="Analogical_switch" scadeName="Analogical_switch">
+        <OutCtxVar targetName="Context_Analogical_switch_1"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_1"/>
+      </NodeInstance>
+      <NodeInstance instName="2" refName="ComputingModule" scadeName="ComputingModule">
+        <OutCtxVar targetName="Context_ComputingModule_2"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="electro_valve_door_gear" scadeName="electro_valve_door_gear">
+        <OutCtxVar targetName="_1_Context_electro_valve_door_gear_1"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="DoorControl" scadeName="DoorControl">
+        <OutCtxVar targetName="Context_DoorControl_1"/>
+      </NodeInstance>
+      <NodeInstance instName="2" refName="electro_valve_door_gear" scadeName="electro_valve_door_gear">
+        <OutCtxVar targetName="_2_Context_electro_valve_door_gear_2"/>
+      </NodeInstance>
+      <NodeInstance instName="2" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_2"/>
+      </NodeInstance>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="_L101" targetType="kcg_bool"/>
+      </FbyOp>
+      <NodeInstance instName="3" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_3"/>
+      </NodeInstance>
+      <FbyOp instName="2">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="_L102" targetType="kcg_bool"/>
+      </FbyOp>
+      <FbyOp instName="3">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="_L117" targetType="kcg_bool"/>
+      </FbyOp>
+      <FbyOp instName="4">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="_L118" targetType="kcg_bool"/>
+      </FbyOp>
+      <NodeInstance instName="4" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_4"/>
+      </NodeInstance>
+      <NodeInstance instName="5" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_5"/>
+      </NodeInstance>
+      <NodeInstance instName="3" refName="electro_valve_door_gear" scadeName="electro_valve_door_gear">
+        <OutCtxVar targetName="Context_electro_valve_door_gear_3"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="GearControl" scadeName="GearControl">
+        <OutCtxVar targetName="Context_GearControl_1"/>
+      </NodeInstance>
+      <NodeInstance instName="4" refName="electro_valve_door_gear" scadeName="electro_valve_door_gear">
+        <OutCtxVar targetName="_3_Context_electro_valve_door_gear_4"/>
+      </NodeInstance>
+      <NodeInstance instName="2" refName="DoorControl" scadeName="DoorControl">
+        <OutCtxVar targetName="Context_DoorControl_2"/>
+      </NodeInstance>
+      <NodeInstance instName="3" refName="DoorControl" scadeName="DoorControl">
+        <OutCtxVar targetName="Context_DoorControl_3"/>
+      </NodeInstance>
+      <NodeInstance instName="6" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_6"/>
+      </NodeInstance>
+      <NodeInstance instName="7" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_7"/>
+      </NodeInstance>
+      <NodeInstance instName="8" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_8"/>
+      </NodeInstance>
+      <NodeInstance instName="9" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_9"/>
+      </NodeInstance>
+      <NodeInstance instName="2" refName="GearControl" scadeName="GearControl">
+        <OutCtxVar targetName="Context_GearControl_2"/>
+      </NodeInstance>
+      <NodeInstance instName="3" refName="GearControl" scadeName="GearControl">
+        <OutCtxVar targetName="Context_GearControl_3"/>
+      </NodeInstance>
+      <NodeInstance instName="10" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_10"/>
+      </NodeInstance>
+      <NodeInstance instName="11" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_11"/>
+      </NodeInstance>
+      <NodeInstance instName="12" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_12"/>
+      </NodeInstance>
+      <NodeInstance instName="13" refName="GenericMonitoring" scadeName="GenericMonitoring">
+        <OutCtxVar targetName="Context_GenericMonitoring_13"/>
+      </NodeInstance>
+      <FbyOp instName="5">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="_L123" targetType="kcg_bool"/>
+      </FbyOp>
+      <NodeInstance instName="1" refName="AnalogicalSwitchMonitoring" scadeName="AnalogicalSwitchMonitoring">
+        <OutCtxVar targetName="Context_AnalogicalSwitchMonitoring_1"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="DoorsMotionMonitoring" scadeName="DoorsMotionMonitoring">
+        <OutCtxVar targetName="Context_DoorsMotionMonitoring_1"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="Gear_motion_monitering" scadeName="Gear_motion_monitering">
+        <OutCtxVar targetName="Context_Gear_motion_monitering_1"/>
+      </NodeInstance>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L101" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L102" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L117" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L118" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L123" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_main_with_time_anomaly"/>
+      <InCtxType targetName="inC_main_with_time_anomaly"/>
+    </RootNode>
+    <NoExpNode headerFile="ComputingModule.h" scadeName="ComputingModule" targetCycleFct="ComputingModule" targetInitFct="ComputingModule_reset" targetInitializationFct="ComputingModule_init">
+      <Input scadeName="door_open" scadeType="bool" targetName="door_open" targetType="kcg_bool"/>
+      <Input scadeName="door_closed" scadeType="bool" targetName="door_closed" targetType="kcg_bool"/>
+      <Input scadeName="gear_extended" scadeType="bool" targetName="gear_extended" targetType="kcg_bool"/>
+      <Input scadeName="gear_retracted" scadeType="bool" targetName="gear_retracted" targetType="kcg_bool"/>
+      <Input scadeName="handle" scadeType="bool" targetName="handle" targetType="kcg_bool"/>
+      <Input scadeName="anomal" scadeType="bool" targetName="anomal" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="general_EV" scadeType="bool" targetName="general_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="close_EV" scadeType="bool" targetName="close_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="open_EV" scadeType="bool" targetName="open_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="retract_EV" scadeType="bool" targetName="retract_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="extend_EV" scadeType="bool" targetName="extend_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="anomaly" scadeType="bool" targetName="anomaly" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="gears_maneuvering" scadeType="bool" targetName="gears_maneuvering" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="gears_locked_down" scadeType="bool" targetName="gears_locked_down" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="up2down" scadeType="bool" targetName="up2down" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="down2up" scadeType="bool" targetName="down2up" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L5" scadeType="bool" targetName="_L5" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L4" scadeType="bool" targetName="_L4" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="_16_SSM_ST_SM1" targetTransitionsType="_17_SSM_TR_SM1">
+        <State scadeName="Init" targetName="SSM_st_Init_SM1">
+          <Local clockVal="SSM_st_Init_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_Init_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_Init_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_Init_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="OpenSwitchDoorValve" targetName="SSM_TR_Init_OpenSwitchDoorValve_1_Init_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="Extend" targetName="SSM_st_Extend_SM1">
+          <Local clockVal="SSM_st_Extend_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_Extend_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_Extend_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_Extend_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_Extend_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_Extend_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="GearsLockedDown" targetName="SSM_TR_Extend_GearsLockedDown_1_Extend_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="Retract" targetName="SSM_st_Retract_SM1">
+          <Local clockVal="SSM_st_Retract_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_Retract_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_Retract_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_Retract_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_Retract_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_Retract_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="GearRetractDone" targetName="SSM_TR_Retract_GearRetractDone_1_Retract_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="GearRetractDone" targetName="SSM_st_GearRetractDone_SM1">
+          <Local clockVal="SSM_st_GearRetractDone_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_GearRetractDone_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_GearRetractDone_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_GearRetractDone_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_GearRetractDone_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_GearRetractDone_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="CloseDoor1" targetName="SSM_TR_GearRetractDone_CloseDoor1_1_GearRetractDone_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="CloseDoor1" targetName="SSM_st_CloseDoor1_SM1">
+          <Local clockVal="SSM_st_CloseDoor1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_CloseDoor1_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_CloseDoor1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_CloseDoor1_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_CloseDoor1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_CloseDoor1_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="1">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_1_size" targetType="kcg_size"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="Init" targetName="SSM_TR_CloseDoor1_Init_1_CloseDoor1_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="OpenSwitchDoorValve" targetName="SSM_st_OpenSwitchDoorValve_SM1">
+          <Local clockVal="SSM_st_OpenSwitchDoorValve_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_OpenSwitchDoorValve_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_OpenSwitchDoorValve_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_OpenSwitchDoorValve_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_OpenSwitchDoorValve_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_OpenSwitchDoorValve_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Retract" targetName="SSM_TR_OpenSwitchDoorValve_Retract_1_OpenSwitchDoorValve_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Extend" targetName="SSM_TR_OpenSwitchDoorValve_Extend_2_OpenSwitchDoorValve_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="GearsLockedDown" targetName="SSM_st_GearsLockedDown_SM1">
+          <Local clockVal="SSM_st_GearsLockedDown_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_GearsLockedDown_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_GearsLockedDown_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_GearsLockedDown_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_GearsLockedDown_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_GearsLockedDown_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="CloseDoor1" targetName="SSM_TR_GearsLockedDown_CloseDoor1_1_GearsLockedDown_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <NodeInstance instName="2" refName="handle_node" scadeName="handle_node">
+        <OutCtxVar targetName="Context_handle_node_2"/>
+      </NodeInstance>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_1_size" targetType="kcg_size"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_16_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="_16_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_16_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_ComputingModule"/>
+    </NoExpNode>
+    <NoExpNode headerFile="handle_node.h" scadeName="handle_node" targetCycleFct="handle_node" targetInitFct="handle_node_reset" targetInitializationFct="handle_node_init">
+      <Input scadeName="handle" scadeType="bool" targetName="handle" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="down2up" scadeType="bool" targetName="down2up" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="up2down" scadeType="bool" targetName="up2down" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L4" scadeType="bool" targetName="_L4" targetType="kcg_bool"/>
+      <Local inCtx="true" scadeName="_L5" scadeType="bool" targetName="_L5" targetType="kcg_bool"/>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="_L1" targetType="kcg_bool"/>
+      </FbyOp>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L1" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_handle_node"/>
+    </NoExpNode>
+    <NoExpNode headerFile="Analogical_switch.h" scadeName="Analogical_switch" targetCycleFct="Analogical_switch" targetInitFct="Analogical_switch_reset" targetInitializationFct="Analogical_switch_init">
+      <Input scadeName="general_EV" scadeType="bool" targetName="general_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="analogical_switch" scadeType="bool^(3)" targetName="analogical_switch" targetType="array_bool_3"/>
+      <Automaton scadeName="SM1" targetStatesType="_14_SSM_ST_SM1" targetTransitionsType="_15_SSM_TR_SM1">
+        <State scadeName="switch_open" targetName="SSM_st_switch_open_SM1">
+          <Local clockVal="SSM_st_switch_open_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L4" scadeType="bool^(3)" targetName="_L4_switch_open_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State3" targetName="SSM_TR_switch_open_State3_1_switch_open_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="switch_close" targetName="SSM_st_switch_close_SM1">
+          <Local clockVal="SSM_st_switch_close_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_switch_close_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State4" targetName="SSM_TR_switch_close_State4_1_switch_close_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Action>
+              <Times instName="12">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_12_size" targetType="kcg_size"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="State4" targetName="SSM_TR_switch_close_State4_2_switch_close_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State3" targetName="SSM_st_State3_SM1">
+          <Local clockVal="SSM_st_State3_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_State3_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="13">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_13_size" targetType="kcg_size"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="switch_close" targetName="SSM_TR_State3_switch_close_1_State3_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State4" targetName="SSM_st_State4_SM1">
+          <Local clockVal="SSM_st_State4_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_State4_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="11">
+                <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_11_size" targetType="kcg_size"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="switch_open" targetName="SSM_TR_State4_switch_open_1_State4_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_12_size" targetType="kcg_size"/>
+      <Memory inCtx="true" targetName="v3_times_13_size" targetType="kcg_size"/>
+      <Memory inCtx="true" targetName="v3_times_11_size" targetType="kcg_size"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_14_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="_14_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_14_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_Analogical_switch"/>
+    </NoExpNode>
+    <NoExpNode headerFile="GenericMonitoring.h" scadeName="GenericMonitoring" targetCycleFct="GenericMonitoring" targetInitFct="GenericMonitoring_reset" targetInitializationFct="GenericMonitoring_init">
+      <Input scadeName="sensor_input" scadeType="bool^(3)" targetName="sensor_input" targetType="array_bool_3"/>
+      <Output inCtx="true" scadeName="anomal" scadeType="bool" targetName="anomal" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="sensor_output" scadeType="bool" targetName="sensor_output" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="_12_SSM_ST_SM1" targetTransitionsType="_13_SSM_TR_SM1">
+        <State scadeName="All" targetName="SSM_st_All_SM1">
+          <Local clockVal="SSM_st_All_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_All_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_All_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_All_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="invalid0" targetName="SSM_TR_All_invalid0_1_All_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="invalid1" targetName="SSM_TR_All_invalid1_2_All_SM1"/>
+          </Fork>
+          <Fork priority="3">
+            <Condition/>
+            <Transition kind="strong" scadeDest="invalid2" targetName="SSM_TR_All_invalid2_3_All_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="invalid0" targetName="SSM_st_invalid0_SM1">
+          <Local clockVal="SSM_st_invalid0_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_invalid0_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_invalid0_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L5" scadeType="bool" targetName="_L5_invalid0_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="invalidAll" targetName="SSM_TR_invalid0_invalidAll_1_invalid0_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="invalid1" targetName="SSM_st_invalid1_SM1">
+          <Local clockVal="SSM_st_invalid1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_invalid1_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_invalid1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L5" scadeType="bool" targetName="_L5_invalid1_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="invalidAll" targetName="SSM_TR_invalid1_invalidAll_1_invalid1_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="invalid2" targetName="SSM_st_invalid2_SM1">
+          <Local clockVal="SSM_st_invalid2_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_invalid2_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_invalid2_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L7" scadeType="bool" targetName="_L7_invalid2_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="invalidAll" targetName="SSM_TR_invalid2_invalidAll_1_invalid2_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="invalidAll" targetName="SSM_st_invalidAll_SM1">
+          <Local clockVal="SSM_st_invalidAll_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_invalidAll_SM1" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_invalidAll_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_invalidAll_SM1" targetType="kcg_bool"/>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_12_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_12_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_GenericMonitoring"/>
+    </NoExpNode>
+    <NoExpNode headerFile="electro_valve_door_gear.h" scadeName="electro_valve_door_gear" targetCycleFct="electro_valve_door_gear" targetInitFct="electro_valve_door_gear_reset" targetInitializationFct="electro_valve_door_gear_init">
+      <Input scadeName="analogical_switch" scadeType="bool" targetName="analogical_switch" targetType="kcg_bool"/>
+      <Input scadeName="E" scadeType="bool" targetName="E" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="status" scadeType="bool" targetName="status" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="_10_SSM_ST_SM1" targetTransitionsType="_11_SSM_TR_SM1">
+        <State scadeName="DooNotopen" targetName="SSM_st_DooNotopen_SM1">
+          <Local clockVal="SSM_st_DooNotopen_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_DooNotopen_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="InterNot2Open" targetName="SSM_TR_DooNotopen_InterNot2Open_1_DooNotopen_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="DoorOpen" targetName="SSM_st_DoorOpen_SM1">
+          <Local clockVal="SSM_st_DoorOpen_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_DoorOpen_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="InteOpen2Not" targetName="SSM_TR_DoorOpen_InteOpen2Not_1_DoorOpen_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="InteOpen2Not" targetName="SSM_st_InteOpen2Not_SM1">
+          <Local clockVal="SSM_st_InteOpen2Not_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_InteOpen2Not_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="15">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_15_size" targetType="kcg_size"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="DooNotopen" targetName="SSM_TR_InteOpen2Not_DooNotopen_1_InteOpen2Not_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="InterNot2Open" targetName="SSM_st_InterNot2Open_SM1">
+          <Local clockVal="SSM_st_InterNot2Open_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_InterNot2Open_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="14">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_14_size" targetType="kcg_size"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="DoorOpen" targetName="SSM_TR_InterNot2Open_DoorOpen_1_InterNot2Open_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_15_size" targetType="kcg_size"/>
+      <Memory inCtx="true" targetName="v3_times_14_size" targetType="kcg_size"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_10_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="_10_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_10_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_electro_valve_door_gear"/>
+    </NoExpNode>
+    <NoExpNode headerFile="DoorControl.h" scadeName="DoorControl" targetCycleFct="DoorControl" targetInitFct="DoorControl_reset" targetInitializationFct="DoorControl_init">
+      <Input scadeName="unlock_high_time" scadeType="int16" targetName="unlock_high_time" targetType="kcg_int16"/>
+      <Input scadeName="high_to_down_time" scadeType="int16" targetName="high_to_down_time" targetType="kcg_int16"/>
+      <Input scadeName="open_EV" scadeType="bool" targetName="open_EV" targetType="kcg_bool"/>
+      <Input scadeName="down_to_high_time" scadeType="int16" targetName="down_to_high_time" targetType="kcg_int16"/>
+      <Input scadeName="lock_high_time" scadeType="int16" targetName="lock_high_time" targetType="kcg_int16"/>
+      <Input scadeName="close_EV" scadeType="bool" targetName="close_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="door_closed" scadeType="bool^(3)" targetName="door_closed" targetType="array_bool_3"/>
+      <Output inCtx="true" scadeName="door_open" scadeType="bool^(3)" targetName="door_open" targetType="array_bool_3"/>
+      <Automaton scadeName="SM1" targetStatesType="_8_SSM_ST_SM1" targetTransitionsType="_9_SSM_TR_SM1">
+        <State scadeName="open_door" targetName="SSM_st_open_door_SM1">
+          <Local clockVal="SSM_st_open_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_open_door_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_open_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool^(3)" targetName="_L3_open_door_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="inter_close_door" targetName="SSM_TR_open_door_inter_close_door_1_open_door_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="close_door" targetName="SSM_st_close_door_SM1">
+          <Local clockVal="SSM_st_close_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_close_door_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_close_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool^(3)" targetName="_L2_close_door_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State5" targetName="SSM_TR_close_door_State5_1_close_door_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="Intermediate1" targetName="SSM_st_Intermediate1_SM1">
+          <Local clockVal="SSM_st_Intermediate1_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_Intermediate1_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="4">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_4_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="open_door" targetName="SSM_TR_Intermediate1_open_door_1_Intermediate1_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State5" targetName="SSM_st_State5_SM1">
+          <Local clockVal="SSM_st_State5_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool^(3)" targetName="_L2_State5_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_State5_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool^(3)" targetName="_L3_State5_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="17">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_17_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="Intermediate1" targetName="SSM_TR_State5_Intermediate1_1_State5_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="inter_close_door" targetName="SSM_st_inter_close_door_SM1">
+          <Local clockVal="SSM_st_inter_close_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_inter_close_door_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_inter_close_door_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool^(3)" targetName="_L3_inter_close_door_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="19">
+                <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_19_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="close_door" targetName="SSM_TR_inter_close_door_close_door_1_inter_close_door_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_4_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_17_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_19_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_8_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="_8_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_8_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_DoorControl"/>
+    </NoExpNode>
+    <NoExpNode headerFile="GearControl.h" scadeName="GearControl" targetCycleFct="GearControl" targetInitFct="GearControl_reset" targetInitializationFct="GearControl_init">
+      <Input scadeName="duration_unlock_down" scadeType="int16" targetName="duration_unlock_down" targetType="kcg_int16"/>
+      <Input scadeName="duration_lock_up" scadeType="int16" targetName="duration_lock_up" targetType="kcg_int16"/>
+      <Input scadeName="duration_sim_down_high" scadeType="int16" targetName="duration_sim_down_high" targetType="kcg_int16"/>
+      <Input scadeName="gear_retract" scadeType="bool" targetName="gear_retract" targetType="kcg_bool"/>
+      <Input scadeName="duration_lock_down" scadeType="int16" targetName="duration_lock_down" targetType="kcg_int16"/>
+      <Input scadeName="duration_sim_high_down" scadeType="int16" targetName="duration_sim_high_down" targetType="kcg_int16"/>
+      <Input scadeName="duration_unlock_up" scadeType="int16" targetName="duration_unlock_up" targetType="kcg_int16"/>
+      <Input scadeName="gear_extend" scadeType="bool" targetName="gear_extend" targetType="kcg_bool"/>
+      <Input scadeName="up2down" scadeType="bool" targetName="up2down" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="gear_extended" scadeType="bool^(3)" targetName="gear_extended" targetType="array_bool_3"/>
+      <Output inCtx="true" scadeName="gear_retracted" scadeType="bool^(3)" targetName="gear_retracted" targetType="array_bool_3"/>
+      <Automaton scadeName="SM1" targetStatesType="_6_SSM_ST_SM1" targetTransitionsType="_7_SSM_TR_SM1">
+        <State scadeName="down" targetName="SSM_st_down_SM1">
+          <Local clockVal="SSM_st_down_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_down_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_down_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool^(3)" targetName="_L3_down_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="start_retract" targetName="SSM_TR_down_start_retract_1_down_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="up" targetName="SSM_TR_down_up_2_down_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="gear_retraction" targetName="SSM_st_gear_retraction_SM1">
+          <Local clockVal="SSM_st_gear_retraction_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_gear_retraction_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_gear_retraction_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool^(3)" targetName="_L2_gear_retraction_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="2">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_2_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="up" targetName="SSM_TR_gear_retraction_up_1_gear_retraction_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="up" targetName="SSM_st_up_SM1">
+          <Local clockVal="SSM_st_up_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_up_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_up_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool^(3)" targetName="_L2_up_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="start_outgoing" targetName="SSM_TR_up_start_outgoing_1_up_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="start_retract" targetName="SSM_st_start_retract_SM1">
+          <Local clockVal="SSM_st_start_retract_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_start_retract_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_start_retract_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool^(3)" targetName="_L2_start_retract_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="9">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_9_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="gear_retraction" targetName="SSM_TR_start_retract_gear_retraction_1_start_retract_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="start_outgoing" targetName="SSM_st_start_outgoing_SM1">
+          <Local clockVal="SSM_st_start_outgoing_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_start_outgoing_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_start_outgoing_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool^(3)" targetName="_L2_start_outgoing_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="12">
+                <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_12_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="gear_outgoing" targetName="SSM_TR_start_outgoing_gear_outgoing_1_start_outgoing_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="gear_outgoing" targetName="SSM_st_gear_outgoing_SM1">
+          <Local clockVal="SSM_st_gear_outgoing_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool^(3)" targetName="_L1_gear_outgoing_SM1" targetType="array_bool_3"/>
+          <Local clockVal="SSM_st_gear_outgoing_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool^(3)" targetName="_L2_gear_outgoing_SM1" targetType="array_bool_3"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="14">
+                <Init inCtx="true" targetName="init3" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_14_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="down" targetName="SSM_TR_gear_outgoing_down_1_gear_outgoing_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init3" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_2_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_9_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_12_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_14_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_6_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="_6_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_6_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_GearControl"/>
+    </NoExpNode>
+    <NoExpNode headerFile="AnalogicalSwitchMonitoring.h" scadeName="AnalogicalSwitchMonitoring" targetCycleFct="AnalogicalSwitchMonitoring" targetInitFct="AnalogicalSwitchMonitoring_reset" targetInitializationFct="AnalogicalSwitchMonitoring_init">
+      <Input scadeName="trigger" scadeType="bool" targetName="trigger" targetType="kcg_bool"/>
+      <Input scadeName="analogical_switch" scadeType="bool" targetName="analogical_switch" targetType="kcg_bool"/>
+      <Input scadeName="open_time" scadeType="int16" targetName="open_time" targetType="kcg_int16"/>
+      <Input scadeName="close_time" scadeType="int16" targetName="close_time" targetType="kcg_int16"/>
+      <Output inCtx="true" scadeName="switch_anomal" scadeType="bool" targetName="switch_anomal" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="_4_SSM_ST_SM1" targetTransitionsType="_5_SSM_TR_SM1">
+        <State scadeName="normal" targetName="SSM_st_normal_SM1">
+          <Local clockVal="SSM_st_normal_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_normal_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State3" targetName="SSM_TR_normal_State3_1_normal_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State4" targetName="SSM_TR_normal_State4_2_normal_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="invalid" targetName="SSM_st_invalid_SM1">
+          <Local clockVal="SSM_st_invalid_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_invalid_SM1" targetType="kcg_bool"/>
+        </State>
+        <State scadeName="State3" targetName="_25_SSM_st_State3_SM1">
+          <Local clockVal="_25_SSM_st_State3_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_State3_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="11">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_11_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="invalid" targetName="SSM_TR_State3_invalid_1_State3_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State4" targetName="_23_SSM_st_State4_SM1">
+          <Local clockVal="_23_SSM_st_State4_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_State4_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="10">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_10_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="invalid" targetName="SSM_TR_State4_invalid_1_State4_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_10_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_11_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_4_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="_4_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_4_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_AnalogicalSwitchMonitoring"/>
+    </NoExpNode>
+    <NoExpNode headerFile="DoorsMotionMonitoring.h" scadeName="DoorsMotionMonitoring" targetCycleFct="DoorsMotionMonitoring" targetInitFct="DoorsMotionMonitoring_reset" targetInitializationFct="DoorsMotionMonitoring_init">
+      <Input scadeName="door_closed" scadeType="bool^(3)" targetName="door_closed" targetType="array_bool_3"/>
+      <Input scadeName="door_open" scadeType="bool^(3)" targetName="door_open" targetType="array_bool_3"/>
+      <Input scadeName="anomaly_time" scadeType="int16" targetName="anomaly_time" targetType="kcg_int16"/>
+      <Input scadeName="close_EV" scadeType="bool" targetName="close_EV" targetType="kcg_bool"/>
+      <Input scadeName="open_EV" scadeType="bool" targetName="open_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="doors_anomaly" scadeType="bool" targetName="doors_anomaly" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="_2_SSM_ST_SM1" targetTransitionsType="_3_SSM_TR_SM1">
+        <State scadeName="normal" targetName="_27_SSM_st_normal_SM1">
+          <Local clockVal="_27_SSM_st_normal_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_normal_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="openEV" targetName="SSM_TR_normal_openEV_1_normal_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="closeEV" targetName="SSM_TR_normal_closeEV_2_normal_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="openEV" targetName="SSM_st_openEV_SM1">
+          <Local clockVal="SSM_st_openEV_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_openEV_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="36">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_36_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="error" targetName="SSM_TR_openEV_error_1_openEV_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Action>
+              <Times instName="37">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_37_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="error" targetName="SSM_TR_openEV_error_2_openEV_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="closeEV" targetName="SSM_st_closeEV_SM1">
+          <Local clockVal="SSM_st_closeEV_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_closeEV_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="40">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_40_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="error" targetName="SSM_TR_closeEV_error_1_closeEV_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Action>
+              <Times instName="39">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_39_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="error" targetName="SSM_TR_closeEV_error_2_closeEV_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="error" targetName="SSM_st_error_SM1">
+          <Local clockVal="SSM_st_error_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_error_SM1" targetType="kcg_bool"/>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_39_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_40_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_37_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_36_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="_2_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="_2_SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="_2_SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_DoorsMotionMonitoring"/>
+    </NoExpNode>
+    <NoExpNode headerFile="Gear_motion_monitering.h" scadeName="Gear_motion_monitering" targetCycleFct="Gear_motion_monitering" targetInitFct="Gear_motion_monitering_reset" targetInitializationFct="Gear_motion_monitering_init">
+      <Input scadeName="gear_retracted" scadeType="bool^(3)" targetName="gear_retracted" targetType="array_bool_3"/>
+      <Input scadeName="retract_EV" scadeType="bool" targetName="retract_EV" targetType="kcg_bool"/>
+      <Input scadeName="duration1" scadeType="int16" targetName="duration1" targetType="kcg_int16"/>
+      <Input scadeName="duration2" scadeType="int16" targetName="duration2" targetType="kcg_int16"/>
+      <Input scadeName="gear_extended" scadeType="bool^(3)" targetName="gear_extended" targetType="array_bool_3"/>
+      <Input scadeName="extend_EV" scadeType="bool" targetName="extend_EV" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="abnormal" scadeType="bool" targetName="abnormal" targetType="kcg_bool"/>
+      <Automaton scadeName="SM1" targetStatesType="SSM_ST_SM1" targetTransitionsType="SSM_TR_SM1">
+        <State scadeName="nomal" targetName="SSM_st_nomal_SM1">
+          <Local clockVal="SSM_st_nomal_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_nomal_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State3" targetName="SSM_TR_nomal_State3_1_nomal_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State4" targetName="SSM_TR_nomal_State4_2_nomal_SM1"/>
+          </Fork>
+          <Fork priority="3">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State5" targetName="SSM_TR_nomal_State5_3_nomal_SM1"/>
+          </Fork>
+          <Fork priority="4">
+            <Condition/>
+            <Transition kind="strong" scadeDest="State6" targetName="SSM_TR_nomal_State6_4_nomal_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="abnormal" targetName="SSM_st_abnormal_SM1">
+          <Local clockVal="SSM_st_abnormal_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_abnormal_SM1" targetType="kcg_bool"/>
+        </State>
+        <State scadeName="State3" targetName="_31_SSM_st_State3_SM1">
+          <Local clockVal="_31_SSM_st_State3_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_State3_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="20">
+                <Init inCtx="true" targetName="init3" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_20_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="abnormal" targetName="SSM_TR_State3_abnormal_1_State3_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State4" targetName="_30_SSM_st_State4_SM1">
+          <Local clockVal="_30_SSM_st_State4_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_State4_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="10">
+                <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_10_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="abnormal" targetName="SSM_TR_State4_abnormal_1_State4_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State5" targetName="_29_SSM_st_State5_SM1">
+          <Local clockVal="_29_SSM_st_State5_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_State5_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="21">
+                <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_21_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="abnormal" targetName="SSM_TR_State5_abnormal_1_State5_SM1"/>
+          </Fork>
+        </State>
+        <State scadeName="State6" targetName="SSM_st_State6_SM1">
+          <Local clockVal="SSM_st_State6_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_State6_SM1" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Action>
+              <Times instName="19">
+                <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+                <Memory inCtx="true" targetName="v3_times_19_int16" targetType="kcg_int16"/>
+              </Times>
+            </Action>
+            <Transition kind="strong" scadeDest="abnormal" targetName="SSM_TR_State6_abnormal_1_State6_SM1"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="SM1_state_act"/>
+        <SelectedState inCtx="true" targetName="SM1_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="SM1_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="SM1_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="SM1_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="SM1_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="SM1_fired"/>
+      </Automaton>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init1" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init2" targetType="kcg_bool"/>
+      <Init inCtx="true" targetName="init3" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="v3_times_19_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_21_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_10_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="v3_times_20_int16" targetType="kcg_int16"/>
+      <Memory inCtx="true" targetName="SM1_state_nxt" targetType="SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_sel" targetType="SSM_ST_SM1"/>
+      <Clock inCtx="true" targetName="SM1_state_act" targetType="SSM_ST_SM1"/>
+      <OutCtxType targetName="outC_Gear_motion_monitering"/>
+    </NoExpNode>
+    <ArrayType cellType="kcg_bool" size="3" targetCompFct="kcg_comp_array_bool_3" targetCopyFct="kcg_copy_array_bool_3" targetName="array_bool_3"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

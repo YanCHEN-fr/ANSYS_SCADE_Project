@@ -1,0 +1,102 @@
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version 2020 R2 (build 20200528T211637) **************
+** Generation date: 2021-03-28T21:59:44
+** Command: scade -code "G:\CROB301\PROJECT\PROJETV2\PROJET\projet.etp" -root main_with_time_anomaly -conf Simulation -sim -all
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\main_with_time_anomaly.c, line 0, character 0
+ ~main_with_time_anomaly.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\Gear_motion_monitering.c, line 0, character 0
+ ~Gear_motion_monitering.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\DoorsMotionMonitoring.c, line 0, character 0
+ ~DoorsMotionMonitoring.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\AnalogicalSwitchMonitoring.c, line 0, character 0
+ ~AnalogicalSwitchMonitoring.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\GearControl.c, line 0, character 0
+ ~GearControl.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\DoorControl.c, line 0, character 0
+ ~DoorControl.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\electro_valve_door_gear.c, line 0, character 0
+ ~electro_valve_door_gear.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\GenericMonitoring.c, line 0, character 0
+ ~GenericMonitoring.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\Analogical_switch.c, line 0, character 0
+ ~Analogical_switch.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\ComputingModule.c, line 0, character 0
+ ~ComputingModule.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\handle_node.c, line 0, character 0
+ ~handle_node.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\main_with_time_anomaly.h, line 0, character 0
+ ~main_with_time_anomaly.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\Gear_motion_monitering.h, line 0, character 0
+ ~Gear_motion_monitering.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\DoorsMotionMonitoring.h, line 0, character 0
+ ~DoorsMotionMonitoring.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\AnalogicalSwitchMonitoring.h, line 0, character 0
+ ~AnalogicalSwitchMonitoring.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\GearControl.h, line 0, character 0
+ ~GearControl.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\DoorControl.h, line 0, character 0
+ ~DoorControl.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\electro_valve_door_gear.h, line 0, character 0
+ ~electro_valve_door_gear.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\GenericMonitoring.h, line 0, character 0
+ ~GenericMonitoring.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\Analogical_switch.h, line 0, character 0
+ ~Analogical_switch.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\ComputingModule.h, line 0, character 0
+ ~ComputingModule.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\handle_node.h, line 0, character 0
+ ~handle_node.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+*** Generated Files Information (GENFIL): Type Utils Generated files
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\projet_type.h, line 0, character 0
+ ~projet_type.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\projet_type.c, line 0, character 0
+ ~projet_type.c
+*** Generated Files Information (GENFIL): Mapping Utils Generated files
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\projet_mapping.h, line 0, character 0
+ ~projet_mapping.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\projet_mapping.c, line 0, character 0
+ ~projet_mapping.c
+*** Generated Files Information (GENFIL): Simulator Generated files
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\projet_interface.h, line 0, character 0
+ ~projet_interface.h
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\projet_interface.c, line 0, character 0
+ ~projet_interface.c
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\projet_dll.c, line 0, character 0
+ ~projet_dll.c
+*** Generated Files Information (GENFIL): Build Generated files
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\Makefile_win64, line 0, character 0
+ ~Makefile_win64
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\main_with_time_anomaly.dll, line 0, character 0
+ ~main_with_time_anomaly.dll
+  at file G:\CROB301\PROJECT\PROJETV2\PROJET\Simulation\main_with_time_anomaly.exe, line 0, character 0
+ ~main_with_time_anomaly.exe
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version 2020 R2 (build 20200528T211637) **************
+** Generation date: 2021-03-28T22:00:03
+** sc2c.log
+*************************************************************$

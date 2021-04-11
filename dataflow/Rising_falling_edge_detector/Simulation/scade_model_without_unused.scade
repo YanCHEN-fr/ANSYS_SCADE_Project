@@ -1,0 +1,117 @@
+
+node #pragma ed <Operator oid="!ed/4aaa/3073/178/602144946774">
+	<diagrams>
+		<NetDiagram name="Rising_falling_edge_detection2_1" landscape="true" format="A4 (210 297)" oid="!ed/4aab/3073/178/602144947f15">
+			<presentationElements>
+				<EquationGE presentable="!ed/4ab0/3073/178/602144c7fd0">
+					<position>
+						<Point x="2593" y="3281"/>
+					</position>
+					<size>
+						<Size width="265" height="503"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/4ab6/3073/178/602144c94778">
+					<position>
+						<Point x="11748" y="3175"/>
+					</position>
+					<size>
+						<Size width="317" height="502"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/4abb/3073/178/602144d443d1">
+					<position>
+						<Point x="6085" y="1614"/>
+					</position>
+					<size>
+						<Size width="1006" height="1006"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4ab0/3073/178/602144c7fd0" dstEquation="!ed/4abb/3073/178/602144d443d1">
+					<positions>
+						<Point x="2858" y="3545"/>
+						<Point x="4630" y="3545"/>
+						<Point x="4630" y="2117"/>
+						<Point x="6085" y="2117"/>
+					</positions>
+				</Edge>
+				<EquationGE presentable="!ed/4adf/3073/178/602145ca5bc8">
+					<position>
+						<Point x="9472" y="3096"/>
+					</position>
+					<size>
+						<Size width="1005" height="662"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4abb/3073/178/602144d443d1" dstEquation="!ed/4adf/3073/178/602145ca5bc8">
+					<positions>
+						<Point x="7091" y="2117"/>
+						<Point x="8229" y="2117"/>
+						<Point x="8229" y="3307"/>
+						<Point x="9472" y="3307"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/4ab0/3073/178/602144c7fd0" dstEquation="!ed/4adf/3073/178/602145ca5bc8">
+					<positions>
+						<Point x="2858" y="3545"/>
+						<Point x="6112" y="3545"/>
+						<Point x="6112" y="3545"/>
+						<Point x="9472" y="3545"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4adf/3073/178/602145ca5bc8" dstEquation="!ed/4ab6/3073/178/602144c94778">
+					<positions>
+						<Point x="10478" y="3440"/>
+						<Point x="11086" y="3440"/>
+						<Point x="11086" y="3440"/>
+						<Point x="11800" y="3440"/>
+					</positions>
+				</Edge>
+			</presentationElements>
+		</NetDiagram>
+	</diagrams>
+</Operator>
+#end
+
+Rising_falling_edge_detection2(
+      #pragma ed    <Variable oid="!ed/4aac/3073/178/602144af3f4"/>
+#end
+
+Input1 : bool)
+returns (
+      #pragma ed    <Variable oid="!ed/4aad/3073/178/602144bb569a"/>
+#end
+
+Output1 : bool)
+var
+      #pragma ed    <Variable oid="!ed/4ab1/3073/178/602144c74796"/>
+#end
+
+_L1 : bool;
+      #pragma ed    <Variable oid="!ed/4abc/3073/178/602144d4900"/>
+#end
+
+_L2 : bool;
+      #pragma ed    <Variable oid="!ed/4ae0/3073/178/602145ca15f3"/>
+#end
+
+_L4 : bool;
+let
+   #pragma ed    <Equation oid="!ed/4ab0/3073/178/602144c7fd0"/>
+#end
+
+   _L1 = Input1;
+   #pragma ed    <Equation oid="!ed/4ab6/3073/178/602144c94778"/>
+#end
+
+   Output1 = _L4;
+   #pragma ed    <Equation oid="!ed/4abb/3073/178/602144d443d1"/>
+#end
+
+   _L2 =  #1 fby(_L1; 1; false);
+   #pragma ed    <Equation oid="!ed/4adf/3073/178/602145ca5bc8"/>
+#end
+
+   _L4 = _L2 #1  xor _L1;
+tel
+

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="electro_valve_door_gear">
+			<inputs>
+				<Variable name="analogical_switch">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/ae8a/5EB5/D38/605cf8a0716e"/>
+					</pragmas>
+				</Variable>
+				<Variable name="E">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/ae8b/5EB5/D38/605cf8a02937"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="status">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/ae89/5EB5/D38/605cf8a04bb5"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="DooNotopen">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="InterNot2Open"/>
+									</target>
+									<condition>
+										<!-- E and analogical_switch -->
+										<NAryOp name="1" operator="and">
+											<operands>
+												<IdExpression>
+													<path>
+														<ConstVarRef name="E"/>
+													</path>
+												</IdExpression>
+												<IdExpression>
+													<path>
+														<ConstVarRef name="analogical_switch"/>
+													</path>
+												</IdExpression>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/ae78/5EB5/D38/605cf8a02587"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/ae77/5EB5/D38/605cf8a0340"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- status = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="status"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae75/5EB5/D38/605cf8a035bc"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae76/5EB5/D38/605cf8a046d7"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/ae74/5EB5/D38/605cf8a05523"/>
+							</pragmas>
+						</State>
+						<State name="DoorOpen">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="InteOpen2Not"/>
+									</target>
+									<condition>
+										<!--  not E or  not analogical_switch -->
+										<NAryOp name="1" operator="or">
+											<operands>
+												<!--  not E -->
+												<UnaryOp name="6" operator="not">
+													<operand>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="E"/>
+															</path>
+														</IdExpression>
+													</operand>
+												</UnaryOp>
+												<!--  not analogical_switch -->
+												<UnaryOp name="7" operator="not">
+													<operand>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="analogical_switch"/>
+															</path>
+														</IdExpression>
+													</operand>
+												</UnaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/ae7d/5EB5/D38/605cf8a0391d"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/ae7c/5EB5/D38/605cf8a02d61"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae7a/5EB5/D38/605cf8a07451"/>
+									</pragmas>
+								</Equation>
+								<!-- status = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="status"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae7b/5EB5/D38/605cf8a02b44"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/ae79/5EB5/D38/605cf8a041c"/>
+							</pragmas>
+						</State>
+						<State name="InteOpen2Not">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="DooNotopen"/>
+									</target>
+									<condition>
+										<!-- 36 times true -->
+										<BinaryOp name="15" operator="times">
+											<operands>
+												<ConstValue value="36"/>
+												<ConstValue value="true"/>
+											</operands>
+										</BinaryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/ae82/5EB5/D38/605cf8a03ace"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L2">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/ae81/5EB5/D38/605cf8a0245b"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L2 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L2"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae7f/5EB5/D38/605cf8a07504"/>
+									</pragmas>
+								</Equation>
+								<!-- status = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="status"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae80/5EB5/D38/605cf8a01ceb"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/ae7e/5EB5/D38/605cf8a0ae5"/>
+							</pragmas>
+						</State>
+						<State name="InterNot2Open">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="DoorOpen"/>
+									</target>
+									<condition>
+										<!-- 10 times true -->
+										<BinaryOp name="14" operator="times">
+											<operands>
+												<ConstValue value="10"/>
+												<ConstValue value="true"/>
+											</operands>
+										</BinaryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/ae87/5EB5/D38/605cf8a06fae"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/ae86/5EB5/D38/605cf8a016c9"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae84/5EB5/D38/605cf8a01555"/>
+									</pragmas>
+								</Equation>
+								<!-- status = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="status"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/ae85/5EB5/D38/605cf8a05b9d"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/ae83/5EB5/D38/605cf8a032a1"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/ae73/5EB5/D38/605cf8a04987"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator oid="!ed/ae72/5EB5/D38/605cf8a04dac" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+					<comment>Eletro-valves simulation of doors and gears. When the digital part input a Hin electrical  order and the general valves is open, the electro valves of doors and gears will be open. We suppose that the open of electro-valves need 1 second and the closures of electro-valves need 3.6 seconds.</comment>
+					<diagrams>
+						<NetDiagram name="electro_valve_door_gear_1" landscape="true" format="A4 (210 297)" oid="!ed/ae88/5EB5/D38/605cf8a06873">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/ae73/5EB5/D38/605cf8a04987">
+									<position>
+										<Point x="2514" y="0"/>
+									</position>
+									<size>
+										<Size width="20822" height="14261"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/ae74/5EB5/D38/605cf8a05523">
+									<position>
+										<Point x="3466" y="6006"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<StateGE presentable="!ed/ae79/5EB5/D38/605cf8a041c">
+									<position>
+										<Point x="18150" y="4948"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/ae75/5EB5/D38/605cf8a035bc">
+									<position>
+										<Point x="5953" y="8017"/>
+									</position>
+									<size>
+										<Size width="317" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/ae76/5EB5/D38/605cf8a046d7">
+									<position>
+										<Point x="5054" y="8123"/>
+									</position>
+									<size>
+										<Size width="211" height="317"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/ae76/5EB5/D38/605cf8a046d7" dstEquation="!ed/ae75/5EB5/D38/605cf8a035bc">
+									<positions>
+										<Point x="5265" y="8281"/>
+										<Point x="6138" y="8281"/>
+										<Point x="6138" y="8281"/>
+										<Point x="6006" y="8281"/>
+									</positions>
+								</Edge>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/ae7a/5EB5/D38/605cf8a07451">
+									<position>
+										<Point x="19420" y="7144"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/ae7b/5EB5/D38/605cf8a02b44">
+									<position>
+										<Point x="20558" y="7011"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/ae7a/5EB5/D38/605cf8a07451" dstEquation="!ed/ae7b/5EB5/D38/605cf8a02b44">
+									<positions>
+										<Point x="19632" y="7303"/>
+										<Point x="20638" y="7303"/>
+										<Point x="20638" y="7303"/>
+										<Point x="20611" y="7303"/>
+									</positions>
+								</Edge>
+								<StateGE presentable="!ed/ae7e/5EB5/D38/605cf8a0ae5">
+									<position>
+										<Point x="11245" y="9710"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/ae7f/5EB5/D38/605cf8a07504">
+									<position>
+										<Point x="12806" y="11986"/>
+									</position>
+									<size>
+										<Size width="211" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/ae80/5EB5/D38/605cf8a01ceb">
+									<position>
+										<Point x="13970" y="11800"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/ae7f/5EB5/D38/605cf8a07504" dstEquation="!ed/ae80/5EB5/D38/605cf8a01ceb">
+									<positions>
+										<Point x="13018" y="12144"/>
+										<Point x="13520" y="12144"/>
+										<Point x="13520" y="12065"/>
+										<Point x="14023" y="12065"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/ae7d/5EB5/D38/605cf8a0391d">
+									<textAreas>
+										<TextArea text="not(E) or not(analogical_switch)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="19526" y="8546"/>
+										<Point x="18336" y="9446"/>
+										<Point x="17145" y="10345"/>
+										<Point x="15954" y="11271"/>
+									</positions>
+									<labelSize>
+										<Size width="5212" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="16615" y="10848"/>
+									</labelPos>
+									<slashPos>
+										<Point x="21034" y="10848"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/ae82/5EB5/D38/605cf8a03ace">
+									<textAreas>
+										<TextArea text=" (36 times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="11245" y="11589"/>
+										<Point x="10345" y="10583"/>
+										<Point x="7885" y="10663"/>
+										<Point x="6932" y="9604"/>
+									</positions>
+									<labelSize>
+										<Size width="3069" height="3810"/>
+									</labelSize>
+									<labelPos>
+										<Point x="7329" y="11588"/>
+									</labelPos>
+									<slashPos>
+										<Point x="9604" y="11589"/>
+									</slashPos>
+								</TransitionGE>
+								<StateGE presentable="!ed/ae83/5EB5/D38/605cf8a032a1">
+									<position>
+										<Point x="11589" y="1508"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/ae84/5EB5/D38/605cf8a01555">
+									<position>
+										<Point x="13229" y="3466"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/ae85/5EB5/D38/605cf8a05b9d">
+									<position>
+										<Point x="14817" y="3360"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/ae84/5EB5/D38/605cf8a01555" dstEquation="!ed/ae85/5EB5/D38/605cf8a05b9d">
+									<positions>
+										<Point x="13441" y="3625"/>
+										<Point x="14155" y="3625"/>
+										<Point x="14155" y="3625"/>
+										<Point x="14870" y="3625"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/ae78/5EB5/D38/605cf8a02587">
+									<textAreas>
+										<TextArea text="(E) and (analogical_switch)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="7779" y="6006"/>
+										<Point x="8520" y="5503"/>
+										<Point x="10821" y="3916"/>
+										<Point x="11589" y="3413"/>
+									</positions>
+									<labelSize>
+										<Size width="4868" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="7038" y="3043"/>
+									</labelPos>
+									<slashPos>
+										<Point x="11113" y="3043"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/ae87/5EB5/D38/605cf8a06fae">
+									<textAreas>
+										<TextArea text="(10 times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="16298" y="3122"/>
+										<Point x="17357" y="3731"/>
+										<Point x="18415" y="4339"/>
+										<Point x="19526" y="4948"/>
+									</positions>
+									<labelSize>
+										<Size width="2937" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="16590" y="2752"/>
+									</labelPos>
+									<slashPos>
+										<Point x="18733" y="2752"/>
+									</slashPos>
+								</TransitionGE>
+							</presentationElements>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>

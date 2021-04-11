@@ -1,0 +1,62 @@
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version Student 2021 R1 (build 20201118T195152) **************
+** Generation date: 2021-02-08T22:52:56
+** Command: scade -code "C:\Users\Administrator\Desktop\ROB301\TP1\comptor\comptor.etp" -root compter -conf Simulation -sim -all
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\compter.c, line 0, character 0
+ ~compter.c
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\compter.h, line 0, character 0
+ ~compter.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+*** Generated Files Information (GENFIL): Type Utils Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\comptor_type.h, line 0, character 0
+ ~comptor_type.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\comptor_type.c, line 0, character 0
+ ~comptor_type.c
+*** Generated Files Information (GENFIL): Mapping Utils Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\comptor_mapping.h, line 0, character 0
+ ~comptor_mapping.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\comptor_mapping.c, line 0, character 0
+ ~comptor_mapping.c
+*** Generated Files Information (GENFIL): Simulator Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\comptor_interface.h, line 0, character 0
+ ~comptor_interface.h
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\comptor_interface.c, line 0, character 0
+ ~comptor_interface.c
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\comptor_dll.c, line 0, character 0
+ ~comptor_dll.c
+*** Generated Files Information (GENFIL): Build Generated files
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\Makefile_win64, line 0, character 0
+ ~Makefile_win64
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\compter.dll, line 0, character 0
+ ~compter.dll
+  at file C:\Users\Administrator\Desktop\ROB301\TP1\comptor\Simulation\compter.exe, line 0, character 0
+ ~compter.exe
+$************** ANSYS(R) SCADE Suite(R) - SCADETOC - Version Student 2021 R1 (build 20201118T195152) **************
+** Generation date: 2021-02-08T22:52:58
+** sc2c.log
+*************************************************************$

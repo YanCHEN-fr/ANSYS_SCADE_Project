@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="Gear">
+			<inputs>
+				<Variable name="gear_up2down">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5005/3A9A/D70/60564c5470c"/>
+					</pragmas>
+				</Variable>
+				<Variable name="gear_down2up">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5006/3A9A/D70/60564c54106"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration_lock_down">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5007/3A9A/D70/60564c546706"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration_unlock_down">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5008/3A9A/D70/60564c542d30"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration_unlock_up">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5009/3A9A/D70/60564c545661"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration_lock_up">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/500a/3A9A/D70/60564c547b32"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration_sim_high_down">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/500b/3A9A/D70/60564c54313f"/>
+					</pragmas>
+				</Variable>
+				<Variable name="duration_sim_down_high">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="int16"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/500c/3A9A/D70/60564c54508c"/>
+					</pragmas>
+				</Variable>
+				<Variable name="door_open">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/500d/3A9A/D70/60564c54617c"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="gear_extended">
+					<type>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<ConstValue value="3"/>
+							</size>
+						</Table>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5002/3A9A/D70/60564c541419"/>
+					</pragmas>
+				</Variable>
+				<Variable name="gear_retracted">
+					<type>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<ConstValue value="3"/>
+							</size>
+						</Table>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/5003/3A9A/D70/60564c5422e4"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="down">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="gear_retraction"/>
+									</target>
+									<condition>
+										<!-- gear_down2up = true and door_open = true and (duration_unlock_down times true) -->
+										<NAryOp name="2" operator="and">
+											<operands>
+												<!-- gear_down2up = true -->
+												<BinaryOp name="2" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="gear_down2up"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- door_open = true -->
+												<BinaryOp name="3" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="door_open"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- (duration_unlock_down times true) -->
+												<BinaryOp name="6" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration_unlock_down"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/4fe7/3A9A/D70/60564c542e58"/>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="up"/>
+									</target>
+									<condition>
+										<!-- gear_up2down = true -->
+										<BinaryOp name="6" operator="=">
+											<operands>
+												<IdExpression>
+													<path>
+														<ConstVarRef name="gear_up2down"/>
+													</path>
+												</IdExpression>
+												<ConstValue value="true"/>
+											</operands>
+										</BinaryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/56ec/1575/1180/6057f7c8618d"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4fe5/3A9A/D70/60564c545e23"/>
+									</pragmas>
+								</Variable>
+								<Variable name="_L3">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4fe6/3A9A/D70/60564c541e2b"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = true ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<!-- true ^ 3 -->
+										<ScalarToVectorOp name="1">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="true"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4fe1/3A9A/D70/60564c545ae9"/>
+									</pragmas>
+								</Equation>
+								<!-- _L3 = false ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L3"/>
+									</lefts>
+									<right>
+										<!-- false ^ 3 -->
+										<ScalarToVectorOp name="2">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="false"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4fe2/3A9A/D70/60564c5418ee"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_extended = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_extended"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4fe3/3A9A/D70/60564c543d90"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_retracted = _L3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_retracted"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L3"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4fe4/3A9A/D70/60564c54448c"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/4fe0/3A9A/D70/60564c545beb"/>
+							</pragmas>
+						</State>
+						<State name="gear_retraction">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="up"/>
+									</target>
+									<condition>
+										<!-- (duration_sim_down_high + duration_lock_up) times true -->
+										<BinaryOp name="2" operator="times">
+											<operands>
+												<!-- duration_sim_down_high + duration_lock_up -->
+												<NAryOp name="1" operator="+">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration_sim_down_high"/>
+															</path>
+														</IdExpression>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration_lock_up"/>
+															</path>
+														</IdExpression>
+													</operands>
+												</NAryOp>
+												<ConstValue value="true"/>
+											</operands>
+										</BinaryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/4fef/3A9A/D70/60564c548bc"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4fed/3A9A/D70/60564c54681c"/>
+									</pragmas>
+								</Variable>
+								<Variable name="_L2">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4fee/3A9A/D70/60564c545690"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = false ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<!-- false ^ 3 -->
+										<ScalarToVectorOp name="5">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="false"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4fe9/3A9A/D70/60564c542402"/>
+									</pragmas>
+								</Equation>
+								<!-- _L2 = false ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L2"/>
+									</lefts>
+									<right>
+										<!-- false ^ 3 -->
+										<ScalarToVectorOp name="6">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="false"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4fea/3A9A/D70/60564c546db2"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_extended = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_extended"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4feb/3A9A/D70/60564c542d9a"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_retracted = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_retracted"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4fec/3A9A/D70/60564c542de9"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/4fe8/3A9A/D70/60564c5468ef"/>
+							</pragmas>
+						</State>
+						<State name="up">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="gear_outgoing"/>
+									</target>
+									<condition>
+										<!-- door_open = true and gear_up2down = true and (duration_unlock_up times true) -->
+										<NAryOp name="4" operator="and">
+											<operands>
+												<!-- door_open = true -->
+												<BinaryOp name="4" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="door_open"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- gear_up2down = true -->
+												<BinaryOp name="5" operator="=">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="gear_up2down"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+												<!-- (duration_unlock_up times true) -->
+												<BinaryOp name="8" operator="times">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration_unlock_up"/>
+															</path>
+														</IdExpression>
+														<ConstValue value="true"/>
+													</operands>
+												</BinaryOp>
+											</operands>
+										</NAryOp>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/4ff7/3A9A/D70/60564c541d72"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4ff5/3A9A/D70/60564c547461"/>
+									</pragmas>
+								</Variable>
+								<Variable name="_L2">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4ff6/3A9A/D70/60564c54475"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = false ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<!-- false ^ 3 -->
+										<ScalarToVectorOp name="7">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="false"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ff1/3A9A/D70/60564c544138"/>
+									</pragmas>
+								</Equation>
+								<!-- _L2 = true ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L2"/>
+									</lefts>
+									<right>
+										<!-- true ^ 3 -->
+										<ScalarToVectorOp name="8">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="true"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ff2/3A9A/D70/60564c542741"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_extended = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_extended"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ff3/3A9A/D70/60564c545bd9"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_retracted = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_retracted"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ff4/3A9A/D70/60564c5466e9"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/4ff0/3A9A/D70/60564c543b91"/>
+							</pragmas>
+						</State>
+						<State name="gear_outgoing">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="down"/>
+									</target>
+									<condition>
+										<!-- (duration_sim_high_down + duration_lock_down) times true -->
+										<BinaryOp name="4" operator="times">
+											<operands>
+												<!-- duration_sim_high_down + duration_lock_down -->
+												<NAryOp name="2" operator="+">
+													<operands>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration_sim_high_down"/>
+															</path>
+														</IdExpression>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="duration_lock_down"/>
+															</path>
+														</IdExpression>
+													</operands>
+												</NAryOp>
+												<ConstValue value="true"/>
+											</operands>
+										</BinaryOp>
+									</condition>
+									<effect>
+										<Action>
+											<pragmas>
+												<ed:Action oid="!ed/5000/3A9A/D70/60564c547442"/>
+											</pragmas>
+										</Action>
+									</effect>
+									<pragmas>
+										<ed:Transition oid="!ed/4fff/3A9A/D70/60564c543e0d"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4ffd/3A9A/D70/60564c544690"/>
+									</pragmas>
+								</Variable>
+								<Variable name="_L2">
+									<type>
+										<Table>
+											<type>
+												<NamedType>
+													<type>
+														<TypeRef name="bool"/>
+													</type>
+												</NamedType>
+											</type>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</Table>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4ffe/3A9A/D70/60564c545f7f"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = false ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<!-- false ^ 3 -->
+										<ScalarToVectorOp name="3">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="false"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ff9/3A9A/D70/60564c547e39"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_extended = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_extended"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ffa/3A9A/D70/60564c541d14"/>
+									</pragmas>
+								</Equation>
+								<!-- _L2 = false ^ 3; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L2"/>
+									</lefts>
+									<right>
+										<!-- false ^ 3 -->
+										<ScalarToVectorOp name="4">
+											<flow>
+												<ListExpression>
+													<items>
+														<ConstValue value="false"/>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<ConstValue value="3"/>
+											</size>
+										</ScalarToVectorOp>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ffb/3A9A/D70/60564c541260"/>
+									</pragmas>
+								</Equation>
+								<!-- gear_retracted = _L2; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="gear_retracted"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L2"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ffc/3A9A/D70/60564c541fd6"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/4ff8/3A9A/D70/60564c545ec0"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/4fdf/3A9A/D70/60564c546517"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator oid="!ed/4fde/3A9A/D70/60564c5430d8" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/7">
+					<diagrams>
+						<NetDiagram name="Gear_1" landscape="true" format="A4 (210 297)" oid="!ed/5001/3A9A/D70/60564c543235">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/4fdf/3A9A/D70/60564c546517">
+									<position>
+										<Point x="2805" y="1984"/>
+									</position>
+									<size>
+										<Size width="17039" height="11721"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/4fe0/3A9A/D70/60564c545beb">
+									<position>
+										<Point x="3175" y="3149"/>
+									</position>
+									<size>
+										<Size width="5266" height="2302"/>
+									</size>
+								</StateGE>
+								<StateGE presentable="!ed/4fe8/3A9A/D70/60564c5468ef">
+									<position>
+										<Point x="13309" y="2990"/>
+									</position>
+									<size>
+										<Size width="5503" height="2434"/>
+									</size>
+								</StateGE>
+								<StateGE presentable="!ed/4ff0/3A9A/D70/60564c543b91">
+									<position>
+										<Point x="12991" y="10451"/>
+									</position>
+									<size>
+										<Size width="4736" height="2461"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4fe1/3A9A/D70/60564c545ae9">
+									<textAreas>
+										<TextArea text="true^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="4260" y="3836"/>
+									</position>
+									<size>
+										<Size width="212" height="317"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4fe2/3A9A/D70/60564c5418ee">
+									<textAreas>
+										<TextArea text="false^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="4180" y="4471"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4fe9/3A9A/D70/60564c542402">
+									<textAreas>
+										<TextArea text="false^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="14049" y="3942"/>
+									</position>
+									<size>
+										<Size width="212" height="317"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4fea/3A9A/D70/60564c546db2">
+									<textAreas>
+										<TextArea text="false^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="14076" y="4524"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4ff1/3A9A/D70/60564c544138">
+									<textAreas>
+										<TextArea text="false^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="13679" y="11430"/>
+									</position>
+									<size>
+										<Size width="212" height="317"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4ff2/3A9A/D70/60564c542741">
+									<textAreas>
+										<TextArea text="true^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="13705" y="12171"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<TransitionGE presentable="!ed/4fe7/3A9A/D70/60564c542e58">
+									<textAreas>
+										<TextArea text="(gear_down2up = true) and (door_open = true) and (duration_unlock_down times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="8440" y="4471"/>
+										<Point x="10292" y="4286"/>
+										<Point x="12144" y="4339"/>
+										<Point x="13309" y="4260"/>
+									</positions>
+									<labelSize>
+										<Size width="12594" height="635"/>
+									</labelSize>
+									<labelPos>
+										<Point x="4235" y="2382"/>
+									</labelPos>
+									<slashPos>
+										<Point x="16034" y="2381"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/4fef/3A9A/D70/60564c548bc">
+									<textAreas>
+										<TextArea text="(duration_sim_down_high +duration_lock_up ) times true" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="15293" y="5424"/>
+										<Point x="15346" y="6085"/>
+										<Point x="14817" y="9657"/>
+										<Point x="15055" y="10451"/>
+									</positions>
+									<labelSize>
+										<Size width="5477" height="635"/>
+									</labelSize>
+									<labelPos>
+										<Point x="15636" y="7646"/>
+									</labelPos>
+									<slashPos>
+										<Point x="20320" y="7646"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/4ff7/3A9A/D70/60564c541d72">
+									<textAreas>
+										<TextArea text=" (door_open = true) and (gear_up2down=true) and (duration_unlock_up times true)" role="130"/>
+									</textAreas>
+									<positions>
+										<Point x="12991" y="11218"/>
+										<Point x="11880" y="11060"/>
+										<Point x="9393" y="11377"/>
+										<Point x="8229" y="11404"/>
+									</positions>
+									<labelSize>
+										<Size width="5583" height="1588"/>
+									</labelSize>
+									<labelPos>
+										<Point x="7647" y="12753"/>
+									</labelPos>
+									<slashPos>
+										<Point x="12436" y="12753"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/4fff/3A9A/D70/60564c543e0d">
+									<positions>
+										<Point x="5741" y="9657"/>
+										<Point x="5662" y="8096"/>
+										<Point x="5980" y="6429"/>
+										<Point x="5583" y="5450"/>
+									</positions>
+									<labelSize>
+										<Size width="5345" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="3361" y="7091"/>
+									</labelPos>
+									<slashPos>
+										<Point x="7911" y="7091"/>
+									</slashPos>
+								</TransitionGE>
+								<EquationGE presentable="!ed/4fe3/3A9A/D70/60564c543d90">
+									<position>
+										<Point x="5980" y="3757"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/4feb/3A9A/D70/60564c542d9a">
+									<position>
+										<Point x="16457" y="3810"/>
+									</position>
+									<size>
+										<Size width="317" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/4ff3/3A9A/D70/60564c545bd9">
+									<position>
+										<Point x="15240" y="11324"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4fe1/3A9A/D70/60564c545ae9" dstEquation="!ed/4fe3/3A9A/D70/60564c543d90">
+									<positions>
+										<Point x="4471" y="3995"/>
+										<Point x="5080" y="3995"/>
+										<Point x="5080" y="3995"/>
+										<Point x="6033" y="3995"/>
+									</positions>
+								</Edge>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4fe9/3A9A/D70/60564c542402" dstEquation="!ed/4feb/3A9A/D70/60564c542d9a">
+									<positions>
+										<Point x="14261" y="4101"/>
+										<Point x="15372" y="4101"/>
+										<Point x="15372" y="4101"/>
+										<Point x="16510" y="4101"/>
+									</positions>
+								</Edge>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4ff1/3A9A/D70/60564c544138" dstEquation="!ed/4ff3/3A9A/D70/60564c545bd9">
+									<positions>
+										<Point x="13891" y="11589"/>
+										<Point x="15134" y="11589"/>
+										<Point x="15134" y="11589"/>
+										<Point x="15293" y="11589"/>
+									</positions>
+								</Edge>
+								<EquationGE presentable="!ed/4fe4/3A9A/D70/60564c54448c">
+									<position>
+										<Point x="5794" y="4366"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/4fec/3A9A/D70/60564c542de9">
+									<position>
+										<Point x="16457" y="4419"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/4ff4/3A9A/D70/60564c5466e9">
+									<position>
+										<Point x="15346" y="12091"/>
+									</position>
+									<size>
+										<Size width="317" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4fe2/3A9A/D70/60564c5418ee" dstEquation="!ed/4fe4/3A9A/D70/60564c54448c">
+									<positions>
+										<Point x="4392" y="4630"/>
+										<Point x="5106" y="4630"/>
+										<Point x="5106" y="4630"/>
+										<Point x="5847" y="4630"/>
+									</positions>
+								</Edge>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4fea/3A9A/D70/60564c546db2" dstEquation="!ed/4fec/3A9A/D70/60564c542de9">
+									<positions>
+										<Point x="14288" y="4683"/>
+										<Point x="15505" y="4683"/>
+										<Point x="15505" y="4683"/>
+										<Point x="16510" y="4683"/>
+									</positions>
+								</Edge>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4ff2/3A9A/D70/60564c542741" dstEquation="!ed/4ff4/3A9A/D70/60564c5466e9">
+									<positions>
+										<Point x="13917" y="12330"/>
+										<Point x="15108" y="12330"/>
+										<Point x="15108" y="12330"/>
+										<Point x="15399" y="12330"/>
+									</positions>
+								</Edge>
+								<StateGE presentable="!ed/4ff8/3A9A/D70/60564c545ec0">
+									<position>
+										<Point x="3519" y="9657"/>
+									</position>
+									<size>
+										<Size width="4710" height="2964"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4ff9/3A9A/D70/60564c547e39">
+									<textAreas>
+										<TextArea text="false^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="4180" y="10848"/>
+									</position>
+									<size>
+										<Size width="211" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/4ffa/3A9A/D70/60564c541d14">
+									<position>
+										<Point x="6059" y="10742"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4ff9/3A9A/D70/60564c547e39" dstEquation="!ed/4ffa/3A9A/D70/60564c541d14">
+									<positions>
+										<Point x="4392" y="11007"/>
+										<Point x="5609" y="11007"/>
+										<Point x="5609" y="11007"/>
+										<Point x="6112" y="11007"/>
+									</positions>
+								</Edge>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4ffb/3A9A/D70/60564c541260">
+									<textAreas>
+										<TextArea text="false^3" role="6"/>
+									</textAreas>
+									<position>
+										<Point x="4180" y="11748"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/4ffc/3A9A/D70/60564c541fd6">
+									<position>
+										<Point x="6059" y="11642"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4ffb/3A9A/D70/60564c541260" dstEquation="!ed/4ffc/3A9A/D70/60564c541fd6">
+									<positions>
+										<Point x="4392" y="11906"/>
+										<Point x="5794" y="11906"/>
+										<Point x="5794" y="11906"/>
+										<Point x="6112" y="11906"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/56ec/1575/1180/6057f7c8618d">
+									<positions>
+										<Point x="8387" y="5292"/>
+										<Point x="9975" y="7011"/>
+										<Point x="11562" y="8731"/>
+										<Point x="13176" y="10478"/>
+									</positions>
+									<labelSize>
+										<Size width="3731" height="953"/>
+									</labelSize>
+									<labelPos>
+										<Point x="10029" y="6773"/>
+									</labelPos>
+									<slashPos>
+										<Point x="12966" y="6773"/>
+									</slashPos>
+								</TransitionGE>
+							</presentationElements>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>
